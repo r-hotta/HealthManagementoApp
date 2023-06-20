@@ -73,7 +73,7 @@ public class HealthController {
 	}
 
 	@RequestMapping("/complete")
-	public String complete(Model model, Input input) {
+	public String complete(Model model, Input input, Long id) {
 		model.addAttribute("title", "完了ページ");
 		Ent entform = new Ent();
 		String health = "異常なし";
@@ -89,6 +89,8 @@ public class HealthController {
 		entform.setMemo(input.getMemo());
 
 		entformdao.insertDb(entform);
+		entformdao2.insertDb(entform);
+		entformdao2.deleteDb(id);
 
 		return "complete";
 
@@ -133,13 +135,29 @@ public class HealthController {
 		}
 		
 		@RequestMapping("/cha/{id}")
-		public String change(@PathVariable Long id, Input input) {
+		public String change(@PathVariable Long id, Model model) {
+			//DBからデータを1件取ってくる(リストの形)
+			List<Ent> list = entformdao.selectOne(id);
+
+			//リストから、オブジェクトだけをピックアップ
+			Ent entformdb = list.get(0);
+
+			//スタンバイしているViewに向かって、データを投げる
+			model.addAttribute("input", entformdb);
+			model.addAttribute("title", "判定更新ページ");
+
+			return "change";
+		}
+		@RequestMapping("/cha/{id}/exe")
+		public String changeExe(@PathVariable  Long id, Input input) {
+			
+			//フォームの値をエンティティに入れ直し
+			
 			Ent entform = new Ent();
 			
 			String health = "異常あり";
 
 			entform.setType(health);
-
 			entform.setName(input.getName());
 			entform.setAge(input.getAge());
 			entform.setSinntyou(input.getSinntyou());
@@ -147,9 +165,10 @@ public class HealthController {
 			entform.setKetuatuue(input.getKetuatuue());
 			entform.setKetuatusita(input.getKetuatusita());
 			entform.setMemo(input.getMemo());
-			entform.setType(input.getType());
 
+			entformdao.updateDb(id, entform);
 			entformdao2.insertDb(entform);
+			//一覧画面へリダイレクト
 			return "redirect:/form";
 		}
 //		//更新画面の表示(SELECT)

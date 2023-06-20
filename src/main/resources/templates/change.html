@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>"判定変更ページ"</title>
+
+</head>
+<body>
+<h1><span th:text="${title}"></span></h1>
+<div th:object="${input}">
+	<table>
+<tr>
+				<th>『名前』</th>
+				<th>『年齢』</th>
+				<th>『身長』</th>
+				<th>『体重』</th>
+				<th>『血圧（上）』</th>
+				<th>『血圧（下）』</th>
+				<th>『メモ』</th>
+			</tr>
+
+			<tr>
+				<td th:text="*{name}"></td>
+				<td th:text="*{age}"></td>
+				<td th:text="*{sinntyou}"></td>
+				<td th:text="*{taijuu}"></td>
+				<td th:text="*{ketuatuue}"></td>
+				<td th:text="*{ketuatusita}">あ</td>
+				<td th:text="*{memo}"></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<th>『判定』</th>
+				</tr>
+				<tr>
+				<td th:text="*{type}"></td>
+			</tr>
+		</table>
+		<h2>今の判定から本当に変更しますか？</h2>
+		
+		<p></p>
+		<form method="get" action="#" th:action="@{/cha/__*{id}__/exe}">
+			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="age" th:value="*{age}">
+			<input type="hidden" name="sinntyou" th:value="*{sinntyou}">
+			<input type="hidden" name="taijuu" th:value="*{taijuu}">
+			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
+			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
+			<input type="hidden" name="memo" th:value="*{memo}">
+			<input type="submit" value="判定変更">
+		</form>
+		<p></p>
+		<form method="get" action="#" th:action="@{/form}">
+
+			<input type="submit" value="一覧画面に戻る">
+		</form>
+		
+</div>
+</body>
+</html>

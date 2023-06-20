@@ -43,6 +43,11 @@
 							<input type="submit"value="削除" />
 						</form>
 					</td>
+					<td>
+						<form th:action="@{/cha/{id}(id=${res.id})}">
+							<input type="submit"value="判定変更" />
+						</form>
+					</td>
 				</tr>
 		</table>
 		<p></p>
