@@ -78,8 +78,8 @@ public class HealthController {
 		Ent entform = new Ent();
 		String health = "異常なし";
 		
-				entform.setType(health);
-
+		entform.setType(health);
+		
 		entform.setName(input.getName());
 		entform.setAge(input.getAge());
 		entform.setSinntyou(input.getSinntyou());
@@ -87,7 +87,6 @@ public class HealthController {
 		entform.setKetuatuue(input.getKetuatuue());
 		entform.setKetuatusita(input.getKetuatusita());
 		entform.setMemo(input.getMemo());
-		entform.setType(input.getType());
 
 		entformdao.insertDb(entform);
 
@@ -109,7 +108,6 @@ public class HealthController {
 		entform.setKetuatuue(input.getKetuatuue());
 		entform.setKetuatusita(input.getKetuatusita());
 		entform.setMemo(input.getMemo());
-		entform.setType(input.getType());
 
 		entformdao.insertDb(entform);
 		entformdao2.insertDb(entform);
