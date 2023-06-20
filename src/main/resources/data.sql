@@ -1,0 +1,2 @@
+INSERT INTO form (name, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type) VALUES ('山田太郎', '25', '170', '65', '120', '80', 'いたって健康', '異常なし');
+INSERT INTO batform (name, age,  sinntyou, taijuu, ketuatuue, ketuatusita, memo, type) VALUES ('田中次郎', '40',  '165', '90', '150', '110', '肥満気味', '異常あり');

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>"確認ページ"</title>
+
+</head>
+<body>
+<h1><span th:text="${title}"></span></h1>
+<div th:object="${input}">
+	<table>
+<tr>
+				<th>『名前』</th>
+				<th>『年齢』</th>
+				<th>『身長』</th>
+				<th>『体重』</th>
+				<th>『血圧（上）』</th>
+				<th>『血圧（下）』</th>
+				<th>『メモ』</th>
+			</tr>
+
+			<tr>
+				<td th:text="*{name}"></td>
+				<td th:text="*{age}"></td>
+				<td th:text="*{sinntyou}"></td>
+				<td th:text="*{taijuu}"></td>
+				<td th:text="*{ketuatuue}"></td>
+				<td th:text="*{ketuatusita}"></td>
+				<td th:text="*{memo}"></td>
+			</tr>
+		</table>
+
+		
+	
+<form method="get" action="#" th:action="@{/add}">
+			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="age" th:value="*{age}">
+			<input type="hidden" name="sinntyou" th:value="*{sinntyou}">
+			<input type="hidden" name="taijuu" th:value="*{taijuu}">
+			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
+			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
+			<input type="hidden" name="memo" th:value="*{memo}">
+			<input type="submit" value="入力画面へ">
+		</form>
+		<p></p>
+		<form method="get" action="#" th:action="@{/complete}">
+			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="age" th:value="*{age}">
+			<input type="hidden" name="sinntyou" th:value="*{sinntyou}">
+			<input type="hidden" name="taijuu" th:value="*{taijuu}">
+			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
+			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
+			<input type="hidden" name="memo" th:value="*{memo}">
+			<input type="submit" value="健康面で異常なし">
+		</form>
+		
+		<form method="get" action="#" th:action="@{/complete2}">
+			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="age" th:value="*{age}">
+			<input type="hidden" name="sinntyou" th:value="*{sinntyou}">
+			<input type="hidden" name="taijuu" th:value="*{taijuu}">
+			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
+			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
+			<input type="hidden" name="memo" th:value="*{memo}">
+			<input type="submit" value="健康面で異常あり">
+		</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>一覧 - </title>
+	<meta charset="utf-8" />
+	
+</head>
+
+<body>
+	
+		<h1 th:text="${title}"></h1>
+		<table>
+		
+				<tr>
+					<th>id</th>
+					<th>名前</th>
+					<th>年齢</th>
+					<th>身長 </th>
+					<th>体重</th>				
+					<th>血圧(上）</th>
+					<th>血圧（下）</th>
+					<th>メモ</th>
+					<th>判定</th>
+				</tr>
+				<tr th:each=" res : ${dbList}">
+					<td th:text="${res.id}">1</td>
+					<td th:text="${res.name}"></td>
+					<td th:text="${res.age}"></td>
+					<td th:text="${res.sinntyou}"></td>
+					<td th:text="${res.taijuu}"></td>
+					<td th:text="${res.ketuatuue}"></td>
+					<td th:text="${res.ketuatusita}"></td>
+					<td th:text="${res.memo}"></td>
+					<td th:text="${res.type}"></td>
+<!--					<td>-->
+<!--						<form th:action="@{/edit/{id}(id=${res.id})}">-->
+<!--							<input type="submit" class="MiniListButton" value="編集" />-->
+<!--						</form>-->
+<!--					</td>-->
+					<td>
+						<form th:action="@{/del/{id}(id=${res.id})}">
+							<input type="submit"value="削除" />
+						</form>
+					</td>
+				</tr>
+		</table>
+		<p></p>
+		
+				<form action="#" method="get" th:action="@{/add}">
+					<input type="submit" value="登録画面">
+				</form>
+<!--				<a class="Link" href="/input" th:href="@{/add}"></a>-->
+			
+			<p></p>
+			
+				
+					<form action="#" method="get" th:action="@{/batform}">
+						<input type="submit" value="異常あり一覧">
+					</form>
+<!--					<a class="Link" href="index.html" th:href="@{/}"></a>-->
+				
+
+</body>
+
+</html>
