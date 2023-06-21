@@ -95,6 +95,40 @@ public class EntFormDao {
 		//Controllerに渡す
 		return resultDb2;
 	}
+	public List<Ent> selectOne(String name) {
+
+		//コンソールに表示
+		System.out.println("編集画面を出します");
+
+		//データベースから目的の1件を取り出して、そのままresultDB1に入れる
+		List<Map<String, Object>> resultDb1 = db.queryForList("SELECT * FROM form where name=?", name);
+
+		//画面に表示しやすい形のList(resultDB2)を用意
+		List<Ent> resultDb2 = new ArrayList<Ent>();
+
+		//1件ずつピックアップ
+		for (Map<String, Object> result1 : resultDb1) {
+
+			//データ1件分を1つのまとまりとするので、EntForm型の「entformdb」を生成
+			Ent entformdb = new Ent();
+
+			//id、nameのデータをentformdbに移す
+			entformdb.setId((int) result1.get("id"));
+			entformdb.setName((String) result1.get("name"));
+			entformdb.setAge((String) result1.get("age"));
+			entformdb.setSinntyou((String) result1.get("sinntyou"));
+			entformdb.setTaijuu((String) result1.get("taijuu"));
+			entformdb.setKetuatuue((String) result1.get("ketuatuue"));
+			entformdb.setKetuatusita((String) result1.get("ketuatusita"));
+			entformdb.setMemo((String) result1.get("memo"));
+			entformdb.setType((String) result1.get("type"));
+			//移し替えたデータを持ったentformdbを、resultDB2に入れる
+			resultDb2.add(entformdb);
+		}
+
+		//Controllerに渡す
+		return resultDb2;
+	}
 
 	
 	//削除(DELETE)

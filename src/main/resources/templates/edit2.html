@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>予定編集</title>
+	<meta charset="utf-8" />
+
+</head>
+
+<body>
+	<h1 th:text="${title}"></h1>
+	<div th:object="${input}">
+		<form action="#" method="get" th:action="@{/edit2/__*{id}__/exe}">
+			<p>
+				名前:<input type="text" name="name" th:value="*{name}">
+			</p>
+			<p>
+				年齢: <input type="text" name="age" th:value="*{age}">
+			</p>
+			<p>
+				身長: <input type="text" name="sinntyou" th:value="*{sinntyou}">
+			</p>
+		
+			<p>
+				体重: <input type="text" name="taijuu" th:value="*{taijuu}">
+			</p>
+			<p>
+				血圧（上）:<input type="text" name="ketuatuue" th:value="*{ketuatuue}">
+			</p>
+			<p>
+				血圧（下）:<input type="text" name="ketuatusita" th:value="*{ketuatusita}">
+			</p>
+			<p>
+				メモ:<input type="text" name="memo" th:value="*{memo}">
+			</p>
+			<p>
+				判定:<span th:text="*{type}"></span> <input type="hidden" name="type" th:value="*{type}">
+			</p>
+			<input type="submit" value="更新">
+		</form>
+	</div>
+</body>
+
+</html>
