@@ -8,3 +8,94 @@ h1{
 body{
 	  background-image:url(../haikeiimg/haikei-3.jpg) ;
 }
+
+table {
+	margin: auto;
+
+	border-collapse: collapse;
+	/*セルの線を重ねる*/
+
+}
+
+table th {
+	background: rgb(128, 255, 128);
+	border: solid 1.5px #909090;
+	color: rgb(0, 0, 0);
+	padding: 3px;
+	width: 200px;
+	/* 幅指定 */
+	height: 40px;
+	/* 高さ指定 */
+	color: rgb(0, 0, 0);
+	/*文字色*/
+	font-size: 17pt;
+	text-align: center;
+}
+
+table td {
+	border: solid 1.5px #909090;
+	background: #ffffd6;
+	padding: 10px;
+	width: 100px;
+	/* 幅指定 */
+	height: 18px;
+	/* 高さ指定 */
+	text-align: center;
+	font-size: 13pt;
+}
+
+/*table tr td:nth-of-type(1) {*/
+/*	width: 5%;*/
+/*	 幅指定 */
+/*		text-align: right;*/
+/*}*/
+
+/*table tr td:nth-of-type(2) {*/
+/*	width: 7%;*/
+/*	 幅指定 */
+/*}*/
+
+/*table tr td:nth-of-type(3) {*/
+/*	width: 15%;*/
+/*	 幅指定 */
+/*}*/
+
+/*table tr td:nth-of-type(4) {*/
+/*	width: 7%;*/
+/*	 幅指定 */
+/*}*/
+
+/*table tr td:nth-of-type(5) {*/
+/*	width: 5%;*/
+/*	 幅指定 */
+/*}*/
+
+/*tabletr td:nth-of-type(6) {*/
+/*	width: 5%;*/
+/*	 幅指定 */
+/*}*/
+
+/*table.a tr td:nth-of-type(7) {*/
+/*	width: 5%;*/
+/*	 幅指定 */
+/*}*/
+
+table tr td {
+	margin: auto;
+}
+
+input[type="submit"] {
+	display: inline-block;
+	font-size: 1ch;
+	padding: 0.5em 2em;
+	text-decoration: none;
+	background: rgb(255, 0, 0);
+	/*ボタン色*/
+	color: #FFF;
+	border-bottom: solid 4px rgb(208, 9, 53);
+	border-radius: 3px;
+	border-top: #ff9500;
+	border-left: #ff9500;
+	border-right: #ff9500;
+	text-align: center;
+}

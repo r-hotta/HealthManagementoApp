@@ -35,7 +35,7 @@ public class HealthController {
 	
 	@RequestMapping("/form")
 	public String form(Model model, Input input) {
-		model.addAttribute("title", "異常なし診察者一覧ページ");
+		model.addAttribute("title", "健康者一覧ページ");
 		List<Ent> list = entformdao.searchDb();
 		model.addAttribute("dbList", list);
 
@@ -44,7 +44,7 @@ public class HealthController {
 	}
 	@RequestMapping("/batform")
 	public String batform(Model model, Input input) {
-		model.addAttribute("title", "異常あり診察者一覧ページ");
+		model.addAttribute("title", "再診者一覧ページ");
 		List<Ent> list2 = entformdao2.searchDb();
 		model.addAttribute("dbList2", list2);
 

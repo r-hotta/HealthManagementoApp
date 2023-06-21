@@ -1,5 +1,5 @@
 h1{
-   color: orange;
+/*   color: orange;*/
    font-size: 50px;
 }
 
@@ -8,7 +8,8 @@ body {
     margin: 0 auto;
 }
 body{
-    background:beige;
+/*    background:beige;*/
+background-image:url(../haikeiimg/haikei-3.jpg) ;
 }
 .inoue-btn{
   width: 100px;
@@ -35,6 +36,10 @@ body{
       justify-content: center;
       align-items: center;
       height: 10vh;
+      font-size: large;
     }
+.btn btn-outline-success{
+	font-size: large;
+}
 
 
