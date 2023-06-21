@@ -1,25 +1,14 @@
-header {
-    border-bottom:  solid 1px;  /* 枠線指定 */
-    padding:  50px 0px;             /* 余白指定 */
-    margin:  auto;
-    width: 100vw;
-    height: 10vh;
-    background-color:bisque;
-}
-
-h1 {
-text-align: center;
-}
 h1{
    color: orange;
+   font-size: 50px;
 }
 
 body {
     padding:  0px;             /* 余白指定 */
     margin: 0 auto;
-    width: 100vw;
-    height: 80vh;
-    background-color:beige;
+}
+body{
+    background:beige;
 }
 
 .btn-square {
@@ -36,6 +25,10 @@ body {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
+}
+.btn-square {
+  width: 5em;
+  height:2em;
 }
 
 
