@@ -30,7 +30,8 @@
 		
 		<p>メモ：<input type="text" name="memo" th:value="*{memo}"></p>
 		<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
-      <div style="margin-left:10%;margin-right:10%;"><a href="#" class= "btn-square" style="width:5%;padding:5px;font-size:20px;">確定</a></div>
+		<div><input type="submit"  value="確定"></div>
+<!--      <div style="margin-left:10%;margin-right:10%;"><a href="#" class= "btn-square" style="width:5%;padding:5px;font-size:20px;">確定</a></div>-->
       
 	</form>
 </body>
