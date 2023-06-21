@@ -10,25 +10,31 @@ body {
 body{
     background:beige;
 }
-
-.btn-square {
+.inoue-btn{
+  width: 100px;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
   background: #FFA500;/*ボタン色*/
   color: white;
-  border-bottom: solid 4px #FF8C00;
-  border-radius: 3px;
+  border-bottom: solid 4px #FFA500;
+  border-radius: 5px;
 }
-.btn-square:active {
+.inoue-btn:active {
   /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
+  transform: translateY(6px);/*下に動く*/
   border-bottom: none;/*線を消す*/
 }
-.btn-square {
+.inoue-btn{
   width: 5em;
-  height:2em;
+  height:3em;
 }
+.center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh;
+    }
 
 

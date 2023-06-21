@@ -1,38 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/Add.css}">
 <head>
 <meta charset="UTF-8">
 <title>"データ挿入ページ"</title>
+<style>
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 </head>
 <body>
 <h1 style="text-align:center" th:text="${title}">データ挿入ページ</h1>
-<form method="get" action="#" th:action="@{/confirm}" th:object="${input}">
-   
-		<p>名前：<input type="text" name="name" th:value="*{name}"></p>
-		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
-		
-		<p>年齢：<input type="text" name="age" th:value="*{age}"></p>
-		<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div>
-	
-		
-		<p>身長：<input type="text" name="sinntyou" th:value="*{sinntyou}"></p>
-		<div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div>
-    
-		<p>体重：<input type="text" name="taijuu" th:value="*{taijuu}"></p>
-		<div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div>
-		
-		<p>血圧（上）：<input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p>
-		<div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div>
-		
-		<p>血圧（下）：<input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p>
-		<div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div>
-		
-		<p>メモ：<input type="text" name="memo" th:value="*{memo}"></p>
-		<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
-		<div><input type="submit"  value="確定"></div>
+ <div class="container">
+      <form method="get" action="#" th:action="@{/confirm}" th:object="${input}">
+   <table>
+  <tr>
+    <td><p>名前：</p></td>
+    <td><p><input type="text" name="name" th:value="*{name}"></p></td>
+    <td><div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div></td>
+  </tr>
+  <tr>
+    <td><p>年齢：</p></td>
+    <td><p><input type="text" name="age" th:value="*{age}"></p></td>
+    <td><div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div></td>
+  </tr>
+  <tr>
+    <td><p>身長：</p></td>
+    <td><p><input type="text" name="sinntyou" th:value="*{sinntyou}"></p></td>
+    <td><div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div></td>
+  </tr>
+  <tr>
+    <td><p>体重：</p></td>
+    <td><p><input type="text" name="taijuu" th:value="*{taijuu}"></p></td>
+    <td><div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div></td>
+  </tr>
+  <tr>    
+    <td><p>血圧(上)：</p></td>
+    <td><p><input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p></td>
+    <td><div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div></td>
+  </tr>
+  <tr>
+    <td><p>血圧(下)：</p></td>
+    <td><p><input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p></td>
+    <td><div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div></td>
+  </tr>
+  <tr>
+    <td><p>メモ：</p></td>
+    <td><p><input type="text" name="memo" th:value="*{memo}"></p></td>
+    <td><div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div></td>
+  </tr>
+</table>
+ <div class="center" ><input type="submit" class = "btn btn-dark" value="確定" ></div>
+      
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<button type="button" class="btn btn-outline-success">Success</button>
+<button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+<button type="button" class="btn btn-outline-light">Light</button>
+<button type="button" class="btn btn-outline-dark">Dark</button>
+ 
+ <button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+ 
 <!--      <div style="margin-left:10%;margin-right:10%;"><a href="#" class= "btn-square" style="width:5%;padding:5px;font-size:20px;">確定</a></div>-->
       
+      
+      
 	</form>
+  </div>
+
 </body>
 </html>
