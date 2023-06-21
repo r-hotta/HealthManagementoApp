@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 header {
     border-bottom:  solid 1px;  /* 枠線指定 */
     padding:  50px 0px;             /* 余白指定 */
@@ -8,43 +6,36 @@ header {
     height: 10vh;
     background-color:bisque;
 }
-    
+
+h1 {
+text-align: center;
+}
 h1{
    color: orange;
-   text-align: center;
 }
 
 body {
-    
     padding:  0px;             /* 余白指定 */
     margin: 0 auto;
     width: 100vw;
     height: 80vh;
     background-color:beige;
 }
-  
-input[type="submit"] {
+
+.btn-square {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  background: #ffa500;/*ボタン色*/
-  color: #FFF;
-  border-bottom: solid 4px lightgray;
-  border-radius: 5px;
-  position: relative; /* relativeを指定 */
-  top: 200px; /* 上から200px移動 */
-   /* 左から40px移動 */
-  font-size: 200%
- 
+  background: #FFA500;/*ボタン色*/
+  color: white;
+  border-bottom: solid 4px #FF8C00;
+  border-radius: 3px;
 }
-input[type="submit"]:active {
+.btn-square:active {
   /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
 }
 
- table{
-	text-align: center;
-	margin: auto
-}
+

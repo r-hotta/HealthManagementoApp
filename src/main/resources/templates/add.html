@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/Add.css}">
 <head>
 <meta charset="UTF-8">
 <title>"データ挿入ページ"</title>
@@ -8,30 +9,37 @@
 <h1 th:text="${title}"></h1>
 <form method="get" action="#" th:action="@{/confirm}" th:object="${input}">
 
-		<p>名前：<input type="text" name="name" th:value="*{name}"></p>
+ <table border="1">
+    <tr>
+		<th><p>名前：<input type="text" name="name" th:value="*{name}"></p></th>
 		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
-		
-		<p>年齢：<input type="text" name="age" th:value="*{age}"></p>
+	</tr>
+	<tr>	
+		<th><p>年齢：<input type="text" name="age" th:value="*{age}"></p></th>
 		<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div>
-		
-		<p>身長：<input type="text" name="sinntyou" th:value="*{sinntyou}"></p>
+	</tr>
+	<tr>	
+		<th><p>身長：<input type="text" name="sinntyou" th:value="*{sinntyou}"></p></th>
 		<div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div>
-
-		<p>体重：<input type="text" name="taijuu" th:value="*{taijuu}"></p>
+    </tr>
+    <tr>
+		<th><p>体重：<input type="text" name="taijuu" th:value="*{taijuu}"></p></th>
 		<div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div>
-		
-		<p>血圧（上）：<input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p>
+	</tr>
+	<tr>	
+		<th><p>血圧（上）：<input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p></th>
 		<div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div>
-		
-		<p>血圧（下）：<input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p>
+	</tr>
+	<tr>	
+		<th><p>血圧（下）：<input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p></th>
 		<div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div>
-		
-		<p>メモ：<input type="text" name="memo" th:value="*{memo}"></p>
+	</tr>
+	<tr>	
+		<th><p>メモ：<input type="text" name="memo" th:value="*{memo}"></p></th>
 		<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
-		
-		<div><input type="submit" value="確定"></div>
-
+	</tr>	
+	
+      <div><a href="#" class="btn-square">確定</a></div>
 	</form>
-  
 </body>
 </html>
