@@ -1,11 +1,11 @@
 CREATE TABLE form(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
-	age VARCHAR (100),
-	sinntyou  VARCHAR(100) NOT NULL,
-	taijuu VARCHAR(100) NOT NULL,
-	ketuatuue VARCHAR(100) NOT NULL,
-	ketuatusita VARCHAR(100) NOT NULL,
+	age INT NOT NULL,
+	sinntyou INT NOT NULL,
+	taijuu INT NOT NULL,
+	ketuatuue INT NOT NULL,
+	ketuatusita INT NOT NULL,
 	memo VARCHAR (100),
 	type VARCHAR (100),
 	PRIMARY KEY(id)
@@ -13,11 +13,11 @@ CREATE TABLE form(
 CREATE TABLE batform(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100),
-	age VARCHAR (100),
-	sinntyou  VARCHAR(100),
-	taijuu VARCHAR(100),
-	ketuatuue VARCHAR(100),
-	ketuatusita VARCHAR(100),
+	age INT NOT NULL,
+	sinntyou  INT NOT NULL,
+	taijuu INT NOT NULL,
+	ketuatuue INT NOT NULL,
+	ketuatusita INT NOT NULL,
 	memo VARCHAR (100) ,
 	type VARCHAR (100) ,
 	PRIMARY KEY(id)

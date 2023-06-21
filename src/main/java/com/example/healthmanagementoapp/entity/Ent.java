@@ -6,15 +6,15 @@ public class Ent {
 	//	private int id2;
 	private String name;
 
-	private String age;
+	private int age;
 	
-	private String sinntyou;
+	private int sinntyou;
 
-	private String taijuu;
+	private int taijuu;
 
-	private String ketuatuue;
+	private int ketuatuue;
 
-	private String ketuatusita;
+	private int ketuatusita;
 	
 	private String memo;
 	
@@ -36,11 +36,11 @@ public class Ent {
 		return name;
 	}
 	
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -48,35 +48,35 @@ public class Ent {
 		this.name = name;
 	}
 
-	public String getSinntyou() {
+	public int getSinntyou() {
 		return sinntyou;
 	}
 
-	public void setSinntyou(String sinntyou) {
+	public void setSinntyou(int sinntyou) {
 		this.sinntyou = sinntyou;
 	}
 
-	public String getTaijuu() {
+	public int getTaijuu() {
 		return taijuu;
 	}
 
-	public void setTaijuu(String taijuu) {
+	public void setTaijuu(int taijuu) {
 		this.taijuu = taijuu;
 	}
 
-	public String getKetuatuue() {
+	public int getKetuatuue() {
 		return ketuatuue;
 	}
 
-	public void setKetuatuue(String ketuatuue) {
+	public void setKetuatuue(int ketuatuue) {
 		this.ketuatuue = ketuatuue;
 	}
 
-	public String getKetuatusita() {
+	public int getKetuatusita() {
 		return ketuatusita;
 	}
 
-	public void setKetuatusita(String ketuatusita) {
+	public void setKetuatusita(int ketuatusita) {
 		this.ketuatusita = ketuatusita;
 	}
 

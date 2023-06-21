@@ -1,29 +1,32 @@
 package com.example.healthmanagementoapp.form;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class Input {
 	long id;
 
 	//	private int id2;
-	@Size(min = 1, max = 20, message = "1～20文字以内にしてください")
+	@Size(min = 0, max = 20, message = "1～20文字以内にしてください")
+	@NotBlank(message = "名前を入力してください")
 	private String name;
 	
-	@NotBlank(message = "年齢を入力してください")
-	private String age;
+	@Positive(message = "*０以上の値を入力してください")
+	
+	private int age;
 
-	@NotBlank(message = "身長を入力してください")
-	private String sinntyou;
+	@Positive(message = "*０以上の値を入力してください")
+	private int sinntyou;
 
-	@NotBlank(message = "体重を入力してください")
-	private String taijuu;
+	@Positive(message = "*０以上の値を入力してください")
+	private int taijuu;
 
-	@NotBlank(message = "血圧（上）を入力してください")
-	private String ketuatuue;
+	@Positive(message = "*０以上の値を入力してください")
+	private int ketuatuue;
 
-	@NotBlank(message = "血圧（下）を入力してください")
-	private String ketuatusita;
+	@Positive(message = "*０以上の値を入力してください")
+	private int ketuatusita;
 	
 	private String memo;
 	
@@ -41,11 +44,11 @@ public class Input {
 		this.id = id;
 	}
 	
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -57,35 +60,35 @@ public class Input {
 		this.name = name;
 	}
 
-	public String getSinntyou() {
+	public int getSinntyou() {
 		return sinntyou;
 	}
 
-	public void setSinntyou(String sinntyou) {
+	public void setSinntyou(int sinntyou) {
 		this.sinntyou = sinntyou;
 	}
 
-	public String getTaijuu() {
+	public int getTaijuu() {
 		return taijuu;
 	}
 
-	public void setTaijuu(String taijuu) {
+	public void setTaijuu(int taijuu) {
 		this.taijuu = taijuu;
 	}
 
-	public String getKetuatuue() {
+	public int getKetuatuue() {
 		return ketuatuue;
 	}
 
-	public void setKetuatuue(String ketuatuue) {
+	public void setKetuatuue(int ketuatuue) {
 		this.ketuatuue = ketuatuue;
 	}
 
-	public String getKetuatusita() {
+	public int getKetuatusita() {
 		return ketuatusita;
 	}
 
-	public void setKetuatusita(String ketuatusita) {
+	public void setKetuatusita(int ketuatusita) {
 		this.ketuatusita = ketuatusita;
 	}
 
