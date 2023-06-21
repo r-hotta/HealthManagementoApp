@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>"健康管理システム"</title>
-<link rel="stylesheet" href="Home.css">
-<style>	
-</style>
+	<meta charset="UTF-8">
+	<title>"健康管理システム"</title>
+	<link rel="stylesheet" href="Home.css">
+	<style>
+	</style>
 </head>
 <header>
-<h1 th:text="${title}"></h1>
+	<h1 th:text="${title}"></h1>
 </header>
+
 <body>
-<table>
+	<table>
 		<tr>
 			<td>
 				<form action="#" method="get" th:action="@{/add}">
@@ -34,12 +36,13 @@
 		</tr>
 	</table>
 
-<!-- <button class="favorite styled"type="button">-->
-<!--    "登録画面"-->
-    
-<!-- <button class="favorite styled" type="button">-->
-<!--    "一覧画面"-->
-<!--</button>-->
+	<!-- <button class="favorite styled"type="button">-->
+	<!--    "登録画面"-->
+
+	<!-- <button class="favorite styled" type="button">-->
+	<!--    "一覧画面"-->
+	<!--</button>-->
 
 </body>
+
 </html>
