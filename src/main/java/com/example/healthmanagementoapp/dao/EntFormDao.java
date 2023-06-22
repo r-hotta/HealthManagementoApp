@@ -22,8 +22,8 @@ public class EntFormDao {
 	}
 
 	public void insertDb(Ent ent) {
-		db.update("INSERT INTO form (name, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-				ent.getName(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(), ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType()
+		db.update("INSERT INTO form (name, seibetu, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(), ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType()
 				);
 	}
 
@@ -45,6 +45,7 @@ public class EntFormDao {
 			//id、nameのデータをentformdbに移す
 			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
+			entformdb.setSeibetu((String) result1.get("seibetu"));
 			entformdb.setAge((int) result1.get("age"));
 			entformdb.setSinntyou((int) result1.get("sinntyou"));
 			entformdb.setTaijuu((int) result1.get("taijuu"));
@@ -81,6 +82,7 @@ public class EntFormDao {
 			//id、nameのデータをentformdbに移す
 			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
+			entformdb.setSeibetu((String) result1.get("seibetu"));
 			entformdb.setAge((int) result1.get("age"));
 			entformdb.setSinntyou((int) result1.get("sinntyou"));
 			entformdb.setTaijuu((int) result1.get("taijuu"));
@@ -115,6 +117,7 @@ public class EntFormDao {
 			//id、nameのデータをentformdbに移す
 			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
+			entformdb.setSeibetu((String) result1.get("seibetu"));
 			entformdb.setAge((int) result1.get("age"));
 			entformdb.setSinntyou((int) result1.get("sinntyou"));
 			entformdb.setTaijuu((int) result1.get("taijuu"));
@@ -151,7 +154,7 @@ public class EntFormDao {
 		//コンソールに表示
 		System.out.println("編集の実行");
 		//UPDATEを実行
-		db.update("UPDATE form SET name = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ? WHERE id = ?", ent.getName(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
+		db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
 				ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), id);
 	}
 	

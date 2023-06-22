@@ -5,6 +5,8 @@ public class Ent {
 
 	//	private int id2;
 	private String name;
+	
+	private String seibetu;
 
 	private int age;
 	
@@ -35,7 +37,18 @@ public class Ent {
 	public String getName() {
 		return name;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
+	public String getSeibetu() {
+		return seibetu;
+	}
+
+	public void setSeibetu(String seibetu) {
+		this.seibetu = seibetu;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -44,9 +57,7 @@ public class Ent {
 		this.age = age;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public int getSinntyou() {
 		return sinntyou;

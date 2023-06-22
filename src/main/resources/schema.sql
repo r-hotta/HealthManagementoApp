@@ -1,6 +1,7 @@
 CREATE TABLE form(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
+	seibetu VARCHAR(100),
 	age INT NOT NULL,
 	sinntyou INT NOT NULL,
 	taijuu INT NOT NULL,
@@ -13,6 +14,7 @@ CREATE TABLE form(
 CREATE TABLE batform(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100),
+	seibetu VARCHAR(100),
 	age INT NOT NULL,
 	sinntyou  INT NOT NULL,
 	taijuu INT NOT NULL,

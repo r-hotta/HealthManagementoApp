@@ -81,6 +81,7 @@ public class HealthController {
 		entform.setType(health);
 		
 		entform.setName(input.getName());
+		entform.setSeibetu(input.getSeibetu());
 		entform.setAge(input.getAge());
 		entform.setSinntyou(input.getSinntyou());
 		entform.setTaijuu(input.getTaijuu());
@@ -102,6 +103,7 @@ public class HealthController {
 		entform.setType(health);
 		
 		entform.setName(input.getName());
+		entform.setSeibetu(input.getSeibetu());
 		entform.setAge(input.getAge());
 		entform.setSinntyou(input.getSinntyou());
 		entform.setTaijuu(input.getTaijuu());
@@ -157,6 +159,8 @@ public class HealthController {
 
 			entform.setType(health);
 			entform.setName(input.getName());
+			entform.setSeibetu(input.getSeibetu());
+			System.out.println(entform.getSeibetu()); 
 			entform.setAge(input.getAge());
 			entform.setSinntyou(input.getSinntyou());
 			entform.setTaijuu(input.getTaijuu());
@@ -193,6 +197,7 @@ public class HealthController {
 
 			entform.setType(health);
 			entform.setName(input.getName());
+			entform.setSeibetu(input.getSeibetu());
 			entform.setAge(input.getAge());
 			entform.setSinntyou(input.getSinntyou());
 			entform.setTaijuu(input.getTaijuu());
@@ -220,20 +225,25 @@ public class HealthController {
 			//スタンバイしているViewに向かって、データを投げる
 			model.addAttribute("input", entformdb);
 			model.addAttribute("title", "編集ページ");
+			model.addAttribute("dbList", list);
 			return "edit";
 		}
 
 		//更新処理(UPDATE)
 		@RequestMapping("/edit/{id}/exe")
-		public String editExe(@PathVariable  Long id , Model model, Input input) {
+		public String editExe(@PathVariable @Validated  Long id , Model model, Input input, BindingResult result) {
 			
 			//フォームの値をエンティティに入れ直し
-			
+			if (result.hasErrors()) {
+				model.addAttribute("title", "入力ページ");
+				return "add";
+			}
 			Ent entform = new Ent();
 			String health = "異常なし";
 			
 			entform.setType(health);
 			entform.setName(input.getName());
+			entform.setSeibetu(input.getSeibetu());
 			entform.setAge(input.getAge());
 			entform.setSinntyou(input.getSinntyou());
 			entform.setTaijuu(input.getTaijuu());
@@ -259,6 +269,7 @@ public class HealthController {
 			//スタンバイしているViewに向かって、データを投げる
 			model.addAttribute("input", entformdb);
 			model.addAttribute("title", "編集ページ");
+			model.addAttribute("dbList", list);
 			return "edit2";
 		}
 
@@ -274,6 +285,7 @@ public class HealthController {
 			
 			entform.setType(health);
 			entform.setName(input.getName());
+			entform.setSeibetu(input.getSeibetu());
 			entform.setAge(input.getAge());
 			entform.setSinntyou(input.getSinntyou());
 			entform.setTaijuu(input.getTaijuu());

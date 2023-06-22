@@ -11,6 +11,7 @@
 	<table>
 <tr>
 				<th>『名前』</th>
+				<th>『性別』</th>
 				<th>『年齢』</th>
 				<th>『身長』</th>
 				<th>『体重』</th>
@@ -21,6 +22,7 @@
 
 			<tr>
 				<td th:text="*{name}"></td>
+				<td th:text="*{seibetu}"></td>
 				<td th:text="*{age}"></td>
 				<td th:text="*{sinntyou}"></td>
 				<td th:text="*{taijuu}"></td>
@@ -42,12 +44,14 @@
 		<p></p>
 		<form method="get" action="#" th:action="@{/cha2/__*{id}__/exe}">
 			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="seibetu" th:value="*{seibetu}">
 			<input type="hidden" name="age" th:value="*{age}">
 			<input type="hidden" name="sinntyou" th:value="*{sinntyou}">
 			<input type="hidden" name="taijuu" th:value="*{taijuu}">
 			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
 			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
 			<input type="hidden" name="memo" th:value="*{memo}">
+			<input type="hidden" name="type" th:value="*{type}">
 			<input type="submit" value="判定変更">
 		</form>
 		<p></p>

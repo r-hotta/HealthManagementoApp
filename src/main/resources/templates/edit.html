@@ -20,7 +20,7 @@
 			<p>
 				身長: <input type="text" name="sinntyou" th:value="*{sinntyou}">
 			</p>
-		
+
 			<p>
 				体重: <input type="text" name="taijuu" th:value="*{taijuu}">
 			</p>
@@ -36,9 +36,35 @@
 			<p>
 				判定:<span th:text="*{type}"></span> <input type="hidden" name="type" th:value="*{type}">
 			</p>
+			<p>性別：</p>
+			<p><select name="seibetu" required>
+					<option value="">選択してください</option>
+					<option>男</option>
+					<option>女</option>
+					<option>その他</option>
+				</select>
+				<!--			<strong>必須</strong>-->
+			</p>
 			<input type="submit" value="更新">
 		</form>
 	</div>
+
+	<table>
+		<tr th:each=" res : ${dbList}">
+			<td>
+			<form th:action="@{/del/{id}(id=${res.id})}">
+			<input type="submit" value="削除" />
+		</form>	
+			</td>
+			<td>
+				<form th:action="@{/cha/{id}(id=${res.id})}">
+			<input type="submit" value="判定変更" />
+		</form>
+			</td>
+		</tr>
+		
+	</table>
+
 </body>
 
 </html>

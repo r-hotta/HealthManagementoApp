@@ -9,8 +9,10 @@ public class Input {
 
 	//	private int id2;
 	@Size(min = 0, max = 20, message = "1～20文字以内にしてください")
-	@NotBlank(message = "名前を入力してください")
+	@NotBlank(message = "*名前を入力してください")
 	private String name;
+	
+	private String seibetu;
 	
 	@Positive(message = "*０以上の値を入力してください")
 	
@@ -44,20 +46,28 @@ public class Input {
 		this.id = id;
 	}
 	
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getSeibetu() {
+		return seibetu;
+	}
+
+	public void setSeibetu(String seibetu) {
+		this.seibetu = seibetu;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public int getSinntyou() {
