@@ -31,7 +31,7 @@
   </tr>
   <tr>
     <td><p>身長：</p></td>
-    <td><p><input type="text" name="sinntyou" th:value="*{sinntyou}"></p></td>
+    <td><p><input type="text" name="sinntyou" th:value="*{sinntyou}" size="{0}"></p></td>
     <td><div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div></td>
   </tr>
   <tr>
@@ -55,14 +55,12 @@
     <td><div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div></td>
   </tr>
   <tr>
-	<td><p>性別：</p></td>
-	<td><p><select name="seibetu">
+	<td><p>性別：<select name="seibetu" required>
 				<option value="">選択してください</option>
 				<option>男</option>
 				<option>女</option>
 				<option>その他</option>
 			</select>
-<!--			<strong>必須</strong>-->
 		</p>
 	</td>
   </tr>

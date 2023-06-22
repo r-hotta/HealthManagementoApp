@@ -41,17 +41,15 @@
 				メモ:<input type="text" name="memo" th:value="*{memo}">
 			</p>
 			<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
-			<p>
-				判定:<span th:text="*{type}"></span> <input type="hidden" name="type" th:value="*{type}">
-			</p>
-			<p>性別：</p>
-			<p><select name="seibetu" required>
+			<p>性別：<select name="seibetu" required>
 					<option value="">選択してください</option>
 					<option>男</option>
 					<option>女</option>
 					<option>その他</option>
 				</select>
-				<!--			<strong>必須</strong>-->
+			</p>
+			<p>
+				判定:<span th:text="*{type}"></span> <input type="hidden" name="type" th:value="*{type}">
 			</p>
             <div><input type="submit" class = "btn btn-outline-warning rounded-pill" value="更新" ></div>
 		</form>
