@@ -140,7 +140,7 @@ public class EntFormDao2 {
 		db.update("delete from batform where id=?", id);
 	}
 
-	public void alldeleteDb(Long id) {
+	public void alldeleteDb() {
 		//コンソールに表示
 		System.out.println("削除しました");
 		//DBからデータを削除

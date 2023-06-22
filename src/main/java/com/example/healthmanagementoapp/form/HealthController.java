@@ -133,6 +133,24 @@ public class HealthController {
 			entformdao2.deleteDb(id);
 			return "redirect:/batform";
 		}
+		//削除(DELETE)
+				@RequestMapping("/alldel")
+				public String alldel() {
+					Ent ent = new Ent();
+					
+
+
+					entformdao.alldeleteDb();
+					entformdao2.alldeleteDb();
+					return "redirect:/form";
+				}
+				//削除(DELETE)
+				@RequestMapping("/alldel2")
+				public String alldel2() {
+					entformdao.alldeleteDb();
+					entformdao2.alldeleteDb();
+					return "redirect:/batform";
+				}
 		
 		@RequestMapping("/cha/{id}")
 		public String change(@PathVariable Long id, Model model) {

@@ -142,7 +142,7 @@ public class EntFormDao {
 		db.update("delete from form where id=?", id);
 	}
 
-	public void alldeleteDb(Long id) {
+	public void alldeleteDb() {
 		//コンソールに表示
 		System.out.println("削除しました");
 		//DBからデータを削除
