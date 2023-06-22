@@ -14,20 +14,20 @@ public class Input {
 	
 	private String seibetu;
 	
-	@Positive(message = "*０以上の値を入力してください")
+	@Positive(message = "*年齢を入力してください")
 	
 	private int age;
 
-	@Positive(message = "*０以上の値を入力してください")
+	@Positive(message = "*値を入力してください")
 	private int sinntyou;
 
-	@Positive(message = "*０以上の値を入力してください")
+	@Positive(message = "*値を入力してください")
 	private int taijuu;
 
-	@Positive(message = "*０以上の値を入力してください")
+	@Positive(message = "*値を入力してください")
 	private int ketuatuue;
 
-	@Positive(message = "*０以上の値を入力してください")
+	@Positive(message = "*値を入力してください")
 	private int ketuatusita;
 	
 	private String memo;
