@@ -233,11 +233,12 @@ public class HealthController {
 		@RequestMapping("/edit/{id}/exe")
 		public String editExe(@PathVariable @Validated  Long id , Model model, Input input, BindingResult result) {
 			
-			//フォームの値をエンティティに入れ直し
+			
 			if (result.hasErrors()) {
 				model.addAttribute("title", "入力ページ");
-				return "add";
+				return "edit";
 			}
+			//フォームの値をエンティティに入れ直し
 			Ent entform = new Ent();
 			String health = "異常なし";
 			
@@ -275,8 +276,11 @@ public class HealthController {
 
 		//更新処理(UPDATE)
 		@RequestMapping("/edit2/{id}/exe")
-		public String editExe2(@PathVariable Long id,Model model, Input input) {
-
+		public String editExe2(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
+			if (result.hasErrors()) {
+				model.addAttribute("title", "入力ページ");
+				return "edit2";
+			}
 			
 			//フォームの値をエンティティに入れ直し
 			Ent entform = new Ent();

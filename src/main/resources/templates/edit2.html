@@ -14,25 +14,32 @@
 			<p>
 				名前:<input type="text" name="name" th:value="*{name}">
 			</p>
+			<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
 			<p>
 				年齢: <input type="text" name="age" th:value="*{age}">
 			</p>
+			<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div>
 			<p>
 				身長: <input type="text" name="sinntyou" th:value="*{sinntyou}">
 			</p>
+			<div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div>
 		
 			<p>
 				体重: <input type="text" name="taijuu" th:value="*{taijuu}">
 			</p>
+			<div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div>
 			<p>
 				血圧（上）:<input type="text" name="ketuatuue" th:value="*{ketuatuue}">
 			</p>
+			<div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div>
 			<p>
 				血圧（下）:<input type="text" name="ketuatusita" th:value="*{ketuatusita}">
 			</p>
+			<div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div>
 			<p>
 				メモ:<input type="text" name="memo" th:value="*{memo}">
 			</p>
+			<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
 			<p>
 				判定:<span th:text="*{type}"></span> <input type="hidden" name="type" th:value="*{type}">
 			</p>
@@ -45,6 +52,7 @@
 				</select>
 				<!--			<strong>必須</strong>-->
 			</p>
+			
 			<input type="submit" value="更新">
 		</form>
 	</div>
