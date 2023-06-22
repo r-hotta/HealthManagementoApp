@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <title>"確認ページ"</title>
 <link rel="stylesheet" th:href="@{/haikei.css}">
 
@@ -44,7 +45,7 @@
 			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
 			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
 			<input type="hidden" name="memo" th:value="*{memo}">
-			<input type="submit" value="入力画面へ">
+			<div><input type="submit" class = "btn btn-outline-success" value="入力画面へ" ></div>
 		</form>
 		<p></p>
 		<form method="get" action="#" th:action="@{/complete}">
@@ -56,7 +57,7 @@
 			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
 			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
 			<input type="hidden" name="memo" th:value="*{memo}">
-			<input type="submit" value="健康面で異常なし">
+			<div><input type="submit" class = "btn btn-outline-primary" value="健康面で異常なし" ></div>
 		</form>
 		
 		<form method="get" action="#" th:action="@{/complete2}">
@@ -68,7 +69,7 @@
 			<input type="hidden" name="ketuatuue" th:value="*{ketuatuue}">
 			<input type="hidden" name="ketuatusita" th:value="*{ketuatusita}">
 			<input type="hidden" name="memo" th:value="*{memo}">
-			<input type="submit" value="健康面で異常あり">
+			<div><input type="submit" class = "btn btn-outline-danger" value="健康面で異常あり" ></div>
 		</form>
 </div>
 </body>

@@ -4,6 +4,7 @@
 <head>
 	<title>予定編集</title>
 	<meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/haikei.css}">
 </head>
 
@@ -52,20 +53,19 @@
 				</select>
 				<!--			<strong>必須</strong>-->
 			</p>
-			
-			<input type="submit" value="更新">
+            <div><input type="submit" class = "btn btn-outline-warning rounded-pill" value="更新" ></div>
 		</form>
 	</div>
 	<table>
 		<tr th:each=" res : ${dbList}">
 			<td>
 			<form th:action="@{/del2/{id}(id=${res.id})}">
-			<input type="submit" value="削除" />
+			<div><input type="submit" class = "btn btn-outline-danger" value="削除" ></div>
 		</form>	
 			</td>
 			<td>
 				<form th:action="@{/cha2/{id}(id=${res.id})}">
-			<input type="submit" value="判定変更" />
+				<div><input type="submit" class = "btn btn-outline-secondary" value="判定変更" ></div>
 		</form>
 			</td>
 		</tr>
