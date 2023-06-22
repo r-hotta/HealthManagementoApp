@@ -134,20 +134,18 @@ public class HealthController {
 			return "redirect:/batform";
 		}
 		//削除(DELETE)
-				@RequestMapping("/alldel")
-				public String alldel() {
-					Ent ent = new Ent();
-					
+		@RequestMapping("/alldel")
+		public String alldel() {
 
-
-					entformdao.alldeleteDb();
-					entformdao2.alldeleteDb();
-					return "redirect:/form";
-				}
+			entformdao.alldeleteDb();
+//			entformdao2.alldeleteDb();
+			return "redirect:/form";
+		}
 				//削除(DELETE)
 				@RequestMapping("/alldel2")
 				public String alldel2() {
-					entformdao.alldeleteDb();
+					
+//					entformdao.alldeleteDb();
 					entformdao2.alldeleteDb();
 					return "redirect:/batform";
 				}
