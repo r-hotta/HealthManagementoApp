@@ -64,7 +64,7 @@ public class HealthController {
 	public String day(Long id, String name, Input input, Input2 input2, Model model) {
 		model.addAttribute("title", "受診日");
 		
-		List<Ent> list = entformdao.searchDb();
+		List<Ent> list = entformdao.selectOne(id);
 		model.addAttribute("dbList", list);
 		return "day";
 	}
