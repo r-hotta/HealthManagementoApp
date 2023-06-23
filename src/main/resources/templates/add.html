@@ -21,32 +21,32 @@
    <table>
   <tr>
     <td><p>名前：</p></td>
-    <td><p><input type="text" name="name" th:value="*{name}"></p></td>
+     <td><p><input type="text" name="name" th:value="*{name}"></p></td>
     <td><div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div></td>
   </tr>
   <tr>
     <td><p>年齢：</p></td>
-    <td><p><input type="text" name="age" th:value="*{age}"></p></td>
+     <td><p><input type="text" id="age" th:value="*{age}"name="age"min="1" max="10" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
     <td><div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div></td>
   </tr>
   <tr>
     <td><p>身長：</p></td>
-    <td><p><input type="text" name="sinntyou" th:value="*{sinntyou}" size="{0}"></p></td>
+     <td><p><input type="text" id="sinntyou" th:value="*{sinntyou}" name="sinntyou"min="1" max="200" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
     <td><div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div></td>
   </tr>
   <tr>
     <td><p>体重：</p></td>
-    <td><p><input type="text" name="taijuu" th:value="*{taijuu}"></p></td>
+    <td><p><input type="text" id="taijuu" th:value="*{taijuu}" name="taijuu"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
     <td><div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div></td>
   </tr>
   <tr>    
     <td><p>血圧(上)：</p></td>
-    <td><p><input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p></td>
+    <td><p><input type="text" id="ketuatuue" th:value="*{ketuatuue}"name="ketuatuue"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
     <td><div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div></td>
   </tr>
   <tr>
     <td><p>血圧(下)：</p></td>
-    <td><p><input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p></td>
+    <td><p><input type="text" id="ketuatusita" th:value="*{ketuatusita}"name="ketuatusita"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
     <td><div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div></td>
   </tr>
   <tr>
@@ -98,3 +98,10 @@
 
 </body>
 </html>
+
+
+<!-- <td><p><input type="text" name="age" th:value="*{age}"></p></td> 年齢
+<td><p><input type="text" name="sinntyou" th:value="*{sinntyou}" size="{0}"></p></td>身長
+ <td><p><input type="text" name="taijuu" th:value="*{taijuu}"></p></td>体重
+ <td><p><input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p></td>血圧↑
+ <td><p><input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p></td>血圧↓-->
