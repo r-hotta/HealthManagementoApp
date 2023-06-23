@@ -24,6 +24,7 @@ CREATE TABLE batform(
 	ketuatusita INT,
 	memo VARCHAR (100) ,
 	type VARCHAR (100) ,
+	hiduke VARCHAR (100),
 	
 	PRIMARY KEY(id)
 );

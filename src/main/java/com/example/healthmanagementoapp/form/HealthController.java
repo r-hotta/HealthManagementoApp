@@ -43,7 +43,6 @@ public class HealthController {
 	public String form(Model model, Input input, Input2 input2) {
 		model.addAttribute("title", "健康者一覧ページ");
 		List<Ent> list = entformdao.searchDb();
-		List<Ent2> list2 = entformdao.searchH();
 		
 		model.addAttribute("dbList", list);
 		model.addAttribute("dbList2", list);
@@ -68,6 +67,15 @@ public class HealthController {
 		List<Ent> list = entformdao.searchDb();
 		model.addAttribute("dbList", list);
 		return "day";
+	}
+	@RequestMapping("/day2")
+	public String day2(Long id, String name, Input input, Input2 input2, Model model) {
+		model.addAttribute("title", "受診日");
+		
+//		List<Ent> list = entformdao2.searchDb();
+		List<Ent> list = entformdao2.selectOne(id);
+		model.addAttribute("dbList", list);
+		return "day2";
 	}
 	
 	@RequestMapping("/set")
@@ -162,7 +170,7 @@ public class HealthController {
 		
 		entformdao2.insertDb(entform);
 
-		return "complete";
+		return "complete2";
 
 	}
 	

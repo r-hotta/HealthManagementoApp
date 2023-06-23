@@ -31,8 +31,12 @@
 			<th>編集</th>
 		</tr>
 		<tr th:each=" res : ${dbList2}">
-
-			<td th:text="${res.name}"></td>
+<td>
+			<form th:action="@{/day2}">
+							<input type="hidden" name="id" th:value="${res.id}">
+						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}"></div>
+						</form>
+						</td>
 			<td th:text="${res.seibetu}"></td>
 			<td th:text="${res.age}"></td>
 			<td th:text="${res.sinntyou}"></td>

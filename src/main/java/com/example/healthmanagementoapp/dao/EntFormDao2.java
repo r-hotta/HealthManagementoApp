@@ -52,6 +52,7 @@ public class EntFormDao2 {
 			entformdb.setKetuatusita((int) result1.get("ketuatusita"));
 			entformdb.setMemo((String) result1.get("memo"));
 			entformdb.setType((String) result1.get("type"));
+			entformdb.setHiduke((String) result1.get("hiduke"));
 			
 
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
@@ -90,6 +91,7 @@ public class EntFormDao2 {
 			entformdb.setKetuatusita((int) result1.get("ketuatusita"));
 			entformdb.setMemo((String) result1.get("memo"));
 			entformdb.setType((String) result1.get("type"));
+			entformdb.setHiduke((String) result1.get("hiduke"));
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
 			resultDb2.add(entformdb);
 		}

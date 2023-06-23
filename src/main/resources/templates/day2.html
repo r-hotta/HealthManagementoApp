@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/form.css}">
+
+<head>
+	<title>再受診日</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+<!--<script type="text/javascript">-->
+<!--window.confirm('これは確認ダイアログです');-->
+<!--</script>-->
+	<h1 th:text="${title}"></h1>
+
+	<table class="a">
+
+		<tr>
+			<th>名前</th>
+			<th>日付</th>
+			<th>メモ</th>
+			<th>削除</th>
+		</tr>
+		<tr th:each="res : ${dbList}">
+			<!--	<td th:text="${res.id}"></td>-->
+			<td th:text="${res.name}"></td>
+			<td th:text="${res.hiduke}"></td>
+			<td th:text="${res.memo}"></td>
+			<td>
+				<form th:action="@{/del2/{id}(id=${res.id})}">
+					<input type="submit" value="削除">
+				</form>
+			</td>
+
+		</tr>
+	</table>
+	<p></p>
+	<table class="b">
+		<tr>
+			<td>
+				<form action="#" method="get" th:action="@{/set}">
+					<input type="hidden" name="name" th:value="*{name}">
+					<input type="hidden" name="hiduke" th:value="*{hiduke}">
+					<input type="hidden" name="memo" th:value="*{memo}">
+					<input type="submit" value="再診">
+				</form>
+
+			</td>
+
+		</tr>
+	</table>
+	
+</body>
+
+</html>
