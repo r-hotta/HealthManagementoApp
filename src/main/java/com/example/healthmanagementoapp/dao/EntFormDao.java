@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.example.healthmanagementoapp.entity.Ent;
+import com.example.healthmanagementoapp.entity.Ent2;
 
 @Component
 public class EntFormDao {
@@ -22,11 +23,13 @@ public class EntFormDao {
 	}
 
 	public void insertDb(Ent ent) {
-		db.update("INSERT INTO form (name, seibetu, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
-				ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(), ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType()
+		db.update("INSERT INTO form (name, seibetu, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type, hiduke) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(), ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent.getHiduke()
 				);
 	}
-
+//	public void insertH(Ent2 ent2) {
+//		db.update("INSERT INTO form (name, memo, hiduke) VALUES(?, ?, ?)",ent2.getName(), ent2.getMemo(), ent2.getHiduke());
+//	}
 	public List<Ent> searchDb() {
 		String sql = "SELECT * FROM form ";
 
@@ -53,11 +56,42 @@ public class EntFormDao {
 			entformdb.setKetuatusita((int) result1.get("ketuatusita"));
 			entformdb.setMemo((String) result1.get("memo"));
 			entformdb.setType((String) result1.get("type"));
+			entformdb.setHiduke((String) result1.get("hiduke"));
+
+		
 			
 
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
 			resultDb2.add(entformdb);
 		}
+			//Controllerに渡す
+			return resultDb2;
+		}
+		
+		public List<Ent2> searchH() {
+			String sql = "SELECT * FROM form ";
+
+			//データベースから取りしたデータをresultDB1に入れる
+			List<Map<String, Object>> resultDb1 = db.queryForList(sql);
+
+			//画面に表示しやすい形のList(resultDB2)を用意
+			List<Ent2> resultDb2 = new ArrayList<Ent2>();
+
+			//1件ずつピックアップ
+			for (Map<String, Object> result1 : resultDb1) {
+
+				//データ1件分を1つのまとまりとしたEntForm型の「entformdb」を生成
+				Ent2 entformdb2 = new Ent2();
+
+				//id、nameのデータをentformdbに移す
+				entformdb2.setId((int) result1.get("id"));
+				entformdb2.setName((String) result1.get("name"));
+				entformdb2.setMemo((String) result1.get("memo"));
+				entformdb2.setHiduke((String) result1.get("hiduke"));
+
+				//移し替えたデータを持ったentformdbを、resultDB2に入れる
+				resultDb2.add(entformdb2);
+			}
 
 		//Controllerに渡す
 		return resultDb2;
@@ -97,7 +131,7 @@ public class EntFormDao {
 		//Controllerに渡す
 		return resultDb2;
 	}
-	public List<Ent> selectOne(String name) {
+	public List<Ent2> selectOne(String name) {
 
 		//コンソールに表示
 		System.out.println("編集画面を出します");
@@ -106,25 +140,19 @@ public class EntFormDao {
 		List<Map<String, Object>> resultDb1 = db.queryForList("SELECT * FROM form where name=?", name);
 
 		//画面に表示しやすい形のList(resultDB2)を用意
-		List<Ent> resultDb2 = new ArrayList<Ent>();
+		List<Ent2> resultDb2 = new ArrayList<Ent2>();
 
 		//1件ずつピックアップ
 		for (Map<String, Object> result1 : resultDb1) {
 
 			//データ1件分を1つのまとまりとするので、EntForm型の「entformdb」を生成
-			Ent entformdb = new Ent();
+			Ent2 entformdb = new Ent2();
 
 			//id、nameのデータをentformdbに移す
-			entformdb.setId((int) result1.get("id"));
+//			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
-			entformdb.setSeibetu((String) result1.get("seibetu"));
-			entformdb.setAge((int) result1.get("age"));
-			entformdb.setSinntyou((int) result1.get("sinntyou"));
-			entformdb.setTaijuu((int) result1.get("taijuu"));
-			entformdb.setKetuatuue((int) result1.get("ketuatuue"));
-			entformdb.setKetuatusita((int) result1.get("ketuatusita"));
 			entformdb.setMemo((String) result1.get("memo"));
-			entformdb.setType((String) result1.get("type"));
+			entformdb.setHiduke((String) result1.get("hiduke"));
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
 			resultDb2.add(entformdb);
 		}
@@ -157,5 +185,12 @@ public class EntFormDao {
 		db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
 				ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), id);
 	}
-	
+	//更新の実行(UPDATE)
+		public void updateDbn(String name, Ent ent, Ent2 ent2) {
+			//コンソールに表示
+			System.out.println("編集の実行");
+			//UPDATEを実行
+			db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
+					ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent2.getHiduke(), name);
+		}
 }

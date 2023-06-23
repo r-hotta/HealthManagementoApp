@@ -33,6 +33,10 @@ public class Input {
 	private String memo;
 	
 	private String type;
+	
+	private String hiduke;
+	
+	
 
 	
 	public Input() {
@@ -116,6 +120,14 @@ public class Input {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getHiduke() {
+		return hiduke;
+	}
+
+	public void setHiduke(String hiduke) {
+		this.hiduke = hiduke;
 	}
 
 	

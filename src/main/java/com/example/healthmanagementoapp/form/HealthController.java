@@ -1,8 +1,12 @@
 package com.example.healthmanagementoapp.form;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.healthmanagementoapp.dao.EntFormDao;
 import com.example.healthmanagementoapp.dao.EntFormDao2;
 import com.example.healthmanagementoapp.entity.Ent;
+import com.example.healthmanagementoapp.entity.Ent2;
 
+@EnableScheduling
 @Controller
 public class HealthController {
 	private EntFormDao entformdao = null;
@@ -27,17 +33,20 @@ public class HealthController {
 	}
 	@RequestMapping("/home")
 	public String home(Model model, Input input) {
-		model.addAttribute("title", "タイトルページ");
+		model.addAttribute("title", "健康管理システム");
 
 		return "home";
 
 	}
 	
 	@RequestMapping("/form")
-	public String form(Model model, Input input) {
+	public String form(Model model, Input input, Input2 input2) {
 		model.addAttribute("title", "健康者一覧ページ");
 		List<Ent> list = entformdao.searchDb();
+		List<Ent2> list2 = entformdao.searchH();
+		
 		model.addAttribute("dbList", list);
+		model.addAttribute("dbList2", list);
 
 		return "form";
 
@@ -51,11 +60,36 @@ public class HealthController {
 		return "batform";
 
 	}
+	
+	@RequestMapping("/day")
+	public String day(Long id, String name, Input input, Input2 input2, Model model) {
+		model.addAttribute("title", "受診日");
+		
+		List<Ent> list = entformdao.searchDb();
+		model.addAttribute("dbList", list);
+		return "day";
+	}
+	
+	@RequestMapping("/set")
+	public String settime(Model model, Input input, Long id) {
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+
+		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
+
+		//			SimpleDateFormat clock = new SimpleDateFormat("HH:mm:ss");
+		Ent ent = new Ent();
+		Ent2 ent2 = new Ent2();
+
+		ent.setHiduke(day.format(date));
+//entformdao.insertH(ent2);
+		entformdao.updateDb(id, ent);
+		return "redirect:/day";
+
+	}
 	@RequestMapping("/add")
 	public String add(Model model, Input input) {
 		model.addAttribute("title", "入力ページ");
-//		List<Ent> list = entformdao.searchDb();
-//		model.addAttribute("dbList", list);
 
 		return "add";
 
@@ -73,13 +107,21 @@ public class HealthController {
 	}
 
 	@RequestMapping("/complete")
-	public String complete(Model model, Input input, Long id) {
+	public String complete(Model model, Input input, Long id, Input2 input2) {
 		model.addAttribute("title", "完了ページ");
+		
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+
+		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
+
 		Ent entform = new Ent();
+		Ent2 ent2 = new Ent2();
 		String health = "異常なし";
 		
+		entform.setHiduke(day.format(date));	
 		entform.setType(health);
-		
+		input.setHiduke(entform.getHiduke());
 		entform.setName(input.getName());
 		entform.setSeibetu(input.getSeibetu());
 		entform.setAge(input.getAge());
@@ -88,9 +130,15 @@ public class HealthController {
 		entform.setKetuatuue(input.getKetuatuue());
 		entform.setKetuatusita(input.getKetuatusita());
 		entform.setMemo(input.getMemo());
+		entform.setHiduke(input.getHiduke());
+		
+//		ent2.setName(input.getName());
+////		ent2.setHiduke(input.getHiduke());
+//		ent2.setMemo(input.getMemo());
 
 		entformdao.insertDb(entform);
-
+		
+		System.out.println(input.getHiduke());
 		return "complete";
 
 	}
@@ -208,6 +256,7 @@ public class HealthController {
 			//フォームの値をエンティティに入れ直し
 			
 			Ent entform = new Ent();
+			Ent2 ent2 = new Ent2();
 			
 			String health = "異常なし";
 
@@ -319,6 +368,7 @@ public class HealthController {
 			//一覧画面へリダイレクト
 			return "redirect:/batform";
 		}
-
+		
+		
 }
 

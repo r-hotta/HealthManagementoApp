@@ -22,7 +22,7 @@ public class Ent {
 	
 	private String type;
 
-	
+	private String hiduke;
 
 	public Ent() {
 	}
@@ -106,4 +106,13 @@ public class Ent {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public String getHiduke() {
+		return hiduke;
+	}
+
+	public void setHiduke(String hiduke) {
+		this.hiduke = hiduke;
+	}
+	
 }

@@ -26,19 +26,15 @@
 					<th>メモ</th>
 					<th>判定</th>
 					<th>編集</th>
-<!--					<th>削除</th>-->
-<!--					<th>判定変更</th>-->
+
 				</tr>
 				<tr th:each=" res : ${dbList}">
 					
 					<td>
-						<form th:action="@{/day}"th:object="${input2}">
-							<input type="hidden" name="name" th:value="${res.name}">
+						<form th:action="@{/day}">
 						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}"></div>
 						</form>
-<!--						<form th:action="@{/edit/{id}(id=${res.id})}">-->
-<!--						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}" ></div>-->
-<!--						</form>-->
+
 					</td>
 					
 					<td th:text="${res.seibetu}"></td>
