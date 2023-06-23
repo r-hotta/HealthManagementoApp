@@ -31,7 +31,16 @@
 				</tr>
 				<tr th:each=" res : ${dbList}">
 					
-					<td th:text="${res.name}"></td>
+					<td>
+						<form th:action="@{/day}"th:object="${input2}">
+							<input type="hidden" name="name" th:value="${res.name}">
+						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}"></div>
+						</form>
+<!--						<form th:action="@{/edit/{id}(id=${res.id})}">-->
+<!--						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}" ></div>-->
+<!--						</form>-->
+					</td>
+					
 					<td th:text="${res.seibetu}"></td>
 					<td th:text="${res.age}"></td>
 					<td th:text="${res.sinntyou}"></td>
