@@ -32,7 +32,9 @@
 					
 					<td>
 						<form th:action="@{/day}">
-						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}"></div>
+							<input type="hidden" name="id" th:value="${res.id}">
+
+						    <div><input type="submit" class = "btn btn-outline-primary" th:value="${res.name}"></div>
 						</form>
 
 					</td>
@@ -66,9 +68,23 @@
 					<div><input type="submit" class = "btn btn-outline-danger" value="再診者一覧" ></div>
 					</form>			
 	                <p></p>
-	                <form action="#" method="get" th:action="@{/alldel}">
-                    <div><input type="submit" class = "btn btn-outline-info" value="クリア" ></div>
+	                <form> action="#" method="get" th:action="@{/alldel}">
+                    <div><input type="submit" class = "btn btn-outline-info"  value="クリア" ></div>
                     </form>
+<!--                    <script>-->
+<!--						window.addEventListener('DOMContentLoaded',function(){-->
+<!--  const btn = document.getElementById('btn'); -->
+<!--  topLink.addEventListener('click',confirmation,false); -->
+  
+<!--  function confirmation(){ -->
+<!--    const v = confirm('確認ダイアログが表示されました'); -->
+<!--    if(v === true){ -->
+      
+<!--    }-->
+<!--  }-->
+<!--});-->
+<!--</script>-->
+
 </body>
 
 </html>
