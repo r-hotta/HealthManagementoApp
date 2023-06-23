@@ -110,8 +110,10 @@
 				</tr>
 			</table>
 			<div><input type="submit" class="btn btn-outline-warning rounded-pill" value="更新"></div>
+		</form>
 	<p></p>
 	<div align="center">
+	
 		<table>
 			<tr th:each=" res : ${dbList}">
 				<td>
@@ -125,9 +127,18 @@
 						<div><input type="submit" class="btn btn-outline-secondary" value="判定変更"></div>
 					</form>
 				</td>
+				
+				
 			</tr>
 
 		</table>
+		<p></p>
+		<td>
+
+					<form action="#" method="get" th:action="@{/form}">
+						<div><input type="submit" class="btn btn-outline-success" value="健康者一覧へ戻る"></div>
+					</form>
+				</td>
 
 </body>
 

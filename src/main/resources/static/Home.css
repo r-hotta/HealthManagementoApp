@@ -6,11 +6,11 @@ header {
     margin:  auto;
     width: 100vw;
     height: 10vh;
-    background-color:bisque;
+    background-color:rgb(154, 250, 211);
 }
     
 h1{
-   color: orange;
+   color: rgb(0, 0, 0);
    text-align: center;
    
 }
@@ -21,7 +21,6 @@ body {
     margin: 0 auto;
     width: 100vw;
     height: 80vh;
-    background-color:beige;
     background-image:url(../haikeiimg/haikei-3.jpg) ;
 }
   
@@ -30,8 +29,8 @@ input[type="submit"] {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  background: #ffa500;/*ボタン色*/
-  color: #FFF;
+  background: rgb(154, 250, 211);/*ボタン色*/
+  color: rgb(0, 0, 0);
   border-bottom: solid 4px lightgray;
   border-radius: 5px;
   position: relative; /* relativeを指定 */

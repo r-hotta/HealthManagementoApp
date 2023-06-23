@@ -38,7 +38,7 @@ return false;
 <header>
 	<h1 th:text="${title}"></h1>
 </header>
-
+<p></p>
 <body>
 	<table>
 		<tr>
@@ -51,12 +51,28 @@ return false;
 
 				</form>
 			</td>
+		</tr>
+		
+	</table>
+	<p></p>
+<table>
+	<tr>
 			<td>　　</td>
 			<td>
 
 
 				<form action="#" method="get" th:action="@{/form}">
-					<div><input type="submit" class="btn btn-outline-success" value="一覧ページ"></div>
+					<div><input type="submit" class="btn btn-outline-success" value="健康者一覧"></div>
+
+				</form>
+			</td>
+			<td>  </td>
+			
+			<td>
+
+
+				<form action="#" method="get" th:action="@{/batform}">
+					<div><input type="submit" class="btn btn-outline-success" value="再診者一覧"></div>
 
 				</form>
 			</td>
@@ -69,9 +85,9 @@ return false;
 	<!-- <button class="favorite styled" type="button">-->
 	<!--    "一覧画面"-->
 	<!--</button>-->
-	<div><a href="#">ページトップへ戻る</a></div>
+	<!--  <div><a href="#">ページトップへ戻る</a></div>
 
-	<div class="pagetop">↑</div>
+	<div class="pagetop">↑</div>-->
 </body>
 
 </html>
