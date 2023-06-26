@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<link rel="stylesheet" th:href="@{/form.css}">
 
 <head>
 	<title>再受診日</title>
 	<meta charset="utf-8" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="hyou.css">
-	<link rel="stylesheet" href="haikei.css">
-	<link rel="stylesheet" th:href="@{/form.css}">
-	
 </head>
 
 <body>
@@ -17,12 +12,12 @@
 <!--window.confirm('これは確認ダイアログです');-->
 <!--</script>-->
 	<h1 th:text="${title}"></h1>
-<p></p>
+
 	<table class="a">
 
 		<tr>
 			<th>名前</th>
-			<th>日付</th>
+			<th>受診日</th>
 			<th>メモ</th>
 			<th>削除</th>
 		</tr>
@@ -41,31 +36,20 @@
 	</table>
 	<p></p>
 	<table class="b">
-		<tr th:each="res : ${dbList}">
+		<tr>
 			<td>
-				<form th:action="@{/saisin/{id}(id=${res.id})}">
-					<input type="hidden" name="id" th:value="${res.id}">
-						    <div><input type="submit" class = "btn btn-outline-warning" value="再診" ></div>
-						</form>
+				<form action="#" method="get" th:action="@{/saisin}">
+					<input type="hidden" name="name" th:value="*{name}">
+					<input type="hidden" name="hiduke" th:value="*{hiduke}">
+					<input type="hidden" name="memo" th:value="*{memo}">
+					<input type="submit" value="再診">
+				</form>
 
 			</td>
 
 		</tr>
-		
 	</table>
-	<p></p>
-	<div>
-				<p>
-				<form method="get" action="#" th:action="@{/form}">
-
-					<div><input type="submit" class = "btn btn-outline-success" value="健康者一覧画面へ" ></div>
-
-
-				</form>
-				
-				<p></p>
-			</div>
-
+	
 </body>
 
 </html>
