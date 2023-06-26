@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+	<link rel="stylesheet" href="Home.css">
+	<link rel="stylesheet" th:href="@{/haikei.css}">
+	<link rel="stylesheet" th:href="@{/header.css}">
+<header>
+	<h2>
+		<a href="/home">健康管理システム</a>
+	</h2>
+	
+
+
+</header>
 
 <head>
 	<meta charset="UTF-8">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<title>"健康管理システム"</title>
-	<link rel="stylesheet" href="Home.css">
-	<link rel="stylesheet" th:href="@{/haikei.css}">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	
+
 	<style>
 	</style>
 	<script>
-jQuery(document).ready(function() {
-var offset = 100;
-var duration = 500;
-jQuery(window).scroll(function() {
-if (jQuery(this).scrollTop() > offset) {
-jQuery('.pagetop').fadeIn(duration);
-} else {
-jQuery('.pagetop').fadeOut(duration);
-}
-});
+		jQuery(document).ready(function () {
+			var offset = 100;
+			var duration = 500;
+			jQuery(window).scroll(function () {
+				if (jQuery(this).scrollTop() > offset) {
+					jQuery('.pagetop').fadeIn(duration);
+				} else {
+					jQuery('.pagetop').fadeOut(duration);
+				}
+			});
 
-jQuery('.pagetop').click(function(event) {
-event.preventDefault();
-jQuery('html, body').animate({scrollTop: 0}, duration);
-return false;
-})
-});
-</script>
+			jQuery('.pagetop').click(function (event) {
+				event.preventDefault();
+				jQuery('html, body').animate({scrollTop: 0}, duration);
+				return false;
+			})
+		});
+	</script>
 
 
 </head>
-<header>
-	<h1 th:text="${title}"></h1>
-</header>
+
 <p></p>
+
 <body>
 	<table>
 		<tr>
@@ -52,11 +60,11 @@ return false;
 				</form>
 			</td>
 		</tr>
-		
+
 	</table>
 	<p></p>
-<table>
-	<tr>
+	<table>
+		<tr>
 			<td>　　</td>
 			<td>
 
@@ -66,8 +74,8 @@ return false;
 
 				</form>
 			</td>
-			<td>  </td>
-			
+			<td> </td>
+
 			<td>
 
 
