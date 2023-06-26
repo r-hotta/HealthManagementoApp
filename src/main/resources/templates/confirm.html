@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<title>"確認ページ"</title>
 	<link rel="stylesheet" th:href="@{/haikei.css}">
 	<link rel="stylesheet" th:href="@{/hyou.css}">
@@ -27,6 +27,8 @@
 			</tr>
 
 			<tr>
+			
+                
 				<td th:text="*{name}"></td>
 				<td th:text="*{seibetu}"></td>
 				<td th:text="*{age}"></td>
@@ -39,7 +41,6 @@
 		</table>
 
 <p></p>
-
 		<form method="get" action="#" th:action="@{/add}">
 			<input type="hidden" name="name" th:value="*{name}">
 			<input type="hidden" name="seibetu" th:value="*{seibetu}">
