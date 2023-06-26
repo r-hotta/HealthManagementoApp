@@ -237,7 +237,7 @@ public class HealthController {
 		entformdao2.updateDb(id, entform);
 		
 		System.out.println(input.getHiduke());
-		return "kannryou2";
+		return "redirect:/batform";
 
 	}
 	
@@ -496,56 +496,7 @@ public class HealthController {
 			//一覧画面へリダイレクト
 			return "kannryou2";
 		}
-		@RequestMapping("/saisin/{id}")
-		public String saisin(@PathVariable Long id, Model model) {
-
-			//DBからデータを1件取ってくる(リストの形)
-			List<Ent> list = entformdao.selectOne(id);
-
-			//リストから、オブジェクトだけをピックアップ
-			Ent entformdb = list.get(0);
-
-			//スタンバイしているViewに向かって、データを投げる
-			model.addAttribute("input", entformdb);
-			model.addAttribute("title", "再登録ページ");
-			model.addAttribute("dbList", list);
-			return "saisin2";
-		}
-		@RequestMapping("/saisin/{id}/exe")
-		public String saisinExe(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
-			if (result.hasErrors()) {
-				model.addAttribute("title", "入力ページ");
-				return "saisin2";
-			}
-			Calendar calendar = Calendar.getInstance();
-			Date date = calendar.getTime();
-
-			SimpleDateFormat day= new SimpleDateFormat("MM/dd");
-
-			Ent entform = new Ent();
-			
-			String health = "異常あり";
-			
-			List<Ent> list = entformdao.selectOne(id);
-			model.addAttribute("dbList", list);
-			entform.setHiduke(day.format(date));	
-			entform.setType(health);
-			input.setHiduke(entform.getHiduke());
-			entform.setName(input.getName());
-			entform.setSeibetu(input.getSeibetu());
-			entform.setAge(input.getAge());
-			entform.setSinntyou(input.getSinntyou());
-			entform.setTaijuu(input.getTaijuu());
-			entform.setKetuatuue(input.getKetuatuue());
-			entform.setKetuatusita(input.getKetuatusita());
-			entform.setMemo(input.getMemo());
-			entform.setHiduke(input.getHiduke());
-			//更新の実行
-			entformdao.updateDb(id, entform);
-
-			//一覧画面へリダイレクト
-			return "kannryou";
-		}
+		
 		
 }
 
