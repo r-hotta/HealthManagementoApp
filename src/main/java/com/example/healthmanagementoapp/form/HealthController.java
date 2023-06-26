@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.healthmanagementoapp.dao.EntFormDao;
 import com.example.healthmanagementoapp.dao.EntFormDao2;
 import com.example.healthmanagementoapp.entity.Ent;
-import com.example.healthmanagementoapp.entity.Ent2;
 
 @EnableScheduling
 @Controller
@@ -143,7 +142,6 @@ public class HealthController {
 		entform.setKetuatusita(input.getKetuatusita());
 		entform.setMemo(input.getMemo());
 		entform.setHiduke(input.getHiduke());
-		
 
 		entformdao.insertDb(entform);
 		
@@ -281,11 +279,12 @@ public class HealthController {
 			List<Ent> list = entformdao.selectOne(id);
 			
 			//リストから、オブジェクトだけをピックアップ
-			Ent entformdb = list.get(0);
+			Ent entform = list.get(0);
 
 			//スタンバイしているViewに向かって、データを投げる
-			model.addAttribute("input", entformdb);
+			model.addAttribute("input", entform);
 			model.addAttribute("title", "判定更新ページ");
+			model.addAttribute("dbList", list);
 
 			return "change";
 		}
@@ -298,6 +297,7 @@ public class HealthController {
 			
 			String health = "異常あり";
 
+//			input.setHiduke(entform.getHiduke());
 			entform.setType(health);
 			entform.setName(input.getName());
 			entform.setSeibetu(input.getSeibetu());
@@ -308,6 +308,7 @@ public class HealthController {
 			entform.setKetuatuue(input.getKetuatuue());
 			entform.setKetuatusita(input.getKetuatusita());
 			entform.setMemo(input.getMemo());
+			entform.setHiduke(input.getHiduke());
 
 			entformdao.deleteDb(id);
 			entformdao2.insertDb(entform);
@@ -324,6 +325,7 @@ public class HealthController {
 			//スタンバイしているViewに向かって、データを投げる
 			model.addAttribute("input", entformdb);
 			model.addAttribute("title", "判定更新ページ");
+			model.addAttribute("dbList", list);
 
 			return "change2";
 		}
@@ -333,7 +335,6 @@ public class HealthController {
 			//フォームの値をエンティティに入れ直し
 			
 			Ent entform = new Ent();
-			Ent2 ent2 = new Ent2();
 			
 			String health = "異常なし";
 
@@ -346,7 +347,7 @@ public class HealthController {
 			entform.setKetuatuue(input.getKetuatuue());
 			entform.setKetuatusita(input.getKetuatusita());
 			entform.setMemo(input.getMemo());
-			
+			entform.setHiduke(input.getHiduke());
 			
 			entformdao.insertDb(entform);
 			entformdao2.deleteDb(id);
