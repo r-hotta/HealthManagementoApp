@@ -17,18 +17,18 @@ table {
 
 }
 
-table th {
+/*table th {
 	background: rgb(128, 255, 128);
 	border: solid 1.5px #909090;
 	color: rgb(0, 0, 0);
 	padding: 3px;
 	width: 200px;
 	/* 幅指定 */
-	height: 40px;
+	/*height: 40px;
 	/* 高さ指定 */
-	color: rgb(0, 0, 0);
+	/*color: rgb(0, 0, 0);
 	/*文字色*/
-	font-size: 17pt;
+	/*font-size: 17pt;
 	text-align: center;
 }
 
@@ -38,9 +38,9 @@ table td {
 	padding: 10px;
 	width: 100px;
 	/* 幅指定 */
-	height: 18px;
+	/*height: 18px;
 	/* 高さ指定 */
-	text-align: center;
+	/*text-align: center;
 	font-size: 13pt;
 }
 
@@ -84,14 +84,14 @@ table tr td {
 	margin: auto;
 }
 
-input[type="submit"] {
+/*input[type="submit"] {
 	display: inline-block;
 	font-size: 1ch;
 	padding: 0.5em 2em;
 	text-decoration: none;
 	background: rgb(255, 0, 0);
 	/*ボタン色*/
-	color: #FFF;
+	/*color: #FFF;
 	border-bottom: solid 4px rgb(208, 9, 53);
 	border-radius: 3px;
 	border-top: #ff9500;
