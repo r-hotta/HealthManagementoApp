@@ -118,7 +118,7 @@ public class EntFormDao2 {
 			Ent entformdb = new Ent();
 
 			//id、nameのデータをentformdbに移す
-//			entformdb.setId((int) result1.get("id"));
+			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
 			entformdb.setSeibetu((String) result1.get("seibetu"));
 			entformdb.setAge((int) result1.get("age"));

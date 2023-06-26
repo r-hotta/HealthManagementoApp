@@ -150,7 +150,7 @@ public class EntFormDao {
 			Ent entformdb = new Ent();
 
 			//id、nameのデータをentformdbに移す
-//			entformdb.setId((int) result1.get("id"));
+			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
 			entformdb.setSeibetu((String) result1.get("seibetu"));
 			entformdb.setAge((int) result1.get("age"));
@@ -190,15 +190,15 @@ public class EntFormDao {
 		//コンソールに表示
 		System.out.println("編集の実行");
 		//UPDATEを実行
-		db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
-				ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), id);
+		db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
+				ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent.getHiduke(), id);
 	}
 	//更新の実行(UPDATE)
-		public void updateDbn(String name, Ent ent, Ent2 ent2) {
+		public void updateDbn(String name, Ent ent) {
 			//コンソールに表示
 			System.out.println("編集の実行");
 			//UPDATEを実行
-			db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
-					ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent2.getHiduke(), name);
+			db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
+					ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent.getHiduke(), name);
 		}
 }

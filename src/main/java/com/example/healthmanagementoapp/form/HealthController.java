@@ -66,7 +66,9 @@ public class HealthController {
 		model.addAttribute("title", "受診日");
 		
 		List<Ent> list = entformdao.selectOne(id);
+		
 		model.addAttribute("dbList", list);
+		
 		return "day";
 	}
 	@RequestMapping("/day2")
@@ -79,14 +81,27 @@ public class HealthController {
 		return "day2";
 	}
 	
-	@RequestMapping("/saisin")
-	public String settime(Model model, Input input, Long id, String name) {
+	@RequestMapping("/dayk")
+	public String dayk(Long id, String name, Input input, Input2 input2, Model model) {
+		model.addAttribute("title", "受診日");
+		List<Ent> list2 = entformdao.selectOne(id);
+		List<Ent> list = entformdao.selectOne(name);
+		model.addAttribute("dbList", list);
+		model.addAttribute("dbList2", list2);
 		
-
-//		entformdao.updateDb(id, ent);
-		return "saisin";
-
+		return "dayk";
 	}
+	@RequestMapping("/dayk2")
+	public String dayk2(Long id, String name, Input input, Input2 input2, Model model) {
+		model.addAttribute("title", "受診日");
+		List<Ent> list2 = entformdao2.selectOne(id);
+		List<Ent> list = entformdao2.selectOne(name);
+		model.addAttribute("dbList", list);
+		model.addAttribute("dbList2", list2);
+		
+		return "dayk2";
+	}
+	
 	@RequestMapping("/add")
 	public String add(Model model, Input input) {
 		model.addAttribute("title", "入力ページ");
@@ -94,6 +109,21 @@ public class HealthController {
 		return "add";
 
 	}
+	@RequestMapping("/kennsaku")
+	public String kennsaku(Model model, Input input, Long id) {
+List<Ent> list = entformdao.selectOne(id);
+		
+		model.addAttribute("dbList", list);
+		return "kennsaku";
+	}
+	@RequestMapping("/kennsaku2")
+	public String kennsaku2(Model model, Input input, Long id) {
+List<Ent> list = entformdao2.selectOne(id);
+		
+		model.addAttribute("dbList", list);
+		return "kennsaku2";
+	}
+	
 	@RequestMapping("/confirm")
 	public String confirm(@Validated Input input, BindingResult result, Model model) {
 
@@ -104,17 +134,6 @@ public class HealthController {
 
 		model.addAttribute("title", "確認ページ");
 		return "confirm";
-	}
-	@RequestMapping("/confirm2")
-	public String confirm2(@Validated Input input, BindingResult result, Model model) {
-
-		if (result.hasErrors()) {
-			model.addAttribute("title", "入力ページ");
-			return "saisin";
-		}
-
-		model.addAttribute("title", "確認ページ");
-		return "confirm2";
 	}
 
 	@RequestMapping("/complete")
@@ -240,7 +259,6 @@ public class HealthController {
 		return "redirect:/batform";
 
 	}
-	
 	
 	//削除(DELETE)
 		@RequestMapping("/del/{id}")
@@ -446,6 +464,58 @@ public class HealthController {
 			//一覧画面へリダイレクト
 			return "redirect:/batform";
 		}
+		
+		@RequestMapping("/saisin/{id}")
+		public String saisin(@PathVariable Long id, Model model) {
+
+			//DBからデータを1件取ってくる(リストの形)
+			List<Ent> list = entformdao.selectOne(id);
+
+			//リストから、オブジェクトだけをピックアップ
+			Ent entformdb = list.get(0);
+
+			//スタンバイしているViewに向かって、データを投げる
+			model.addAttribute("input", entformdb);
+			model.addAttribute("title", "再登録ページ");
+			model.addAttribute("dbList", list);
+			return "saisin";
+		}
+		@RequestMapping("/saisin/{id}/exe")
+		public String saisinExe(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
+			if (result.hasErrors()) {
+				model.addAttribute("title", "入力ページ");
+				return "saisin";
+			}
+			Calendar calendar = Calendar.getInstance();
+			Date date = calendar.getTime();
+
+			SimpleDateFormat day= new SimpleDateFormat("MM/dd");
+
+			Ent entform = new Ent();
+			
+			String health = "異常あり";
+			
+			List<Ent> list = entformdao.selectOne(id);
+			model.addAttribute("dbList", list);
+			entform.setHiduke(day.format(date));	
+			entform.setType(health);
+			input.setHiduke(entform.getHiduke());
+			entform.setName(input.getName());
+			entform.setSeibetu(input.getSeibetu());
+			entform.setAge(input.getAge());
+			entform.setSinntyou(input.getSinntyou());
+			entform.setTaijuu(input.getTaijuu());
+			entform.setKetuatuue(input.getKetuatuue());
+			entform.setKetuatusita(input.getKetuatusita());
+			entform.setMemo(input.getMemo());
+			entform.setHiduke(input.getHiduke());
+			//更新の実行
+			entformdao.updateDb(id, entform);
+
+			//一覧画面へリダイレクト
+			return "kannryou";
+		}
+		
 		@RequestMapping("/saisin2/{id}")
 		public String saisin2(@PathVariable Long id, Model model) {
 
@@ -496,7 +566,6 @@ public class HealthController {
 			//一覧画面へリダイレクト
 			return "kannryou2";
 		}
-		
 		
 }
 
