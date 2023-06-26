@@ -72,19 +72,19 @@
 	<form action="#" method="get" th:action="@{/alldel}">
 		<div><input type="submit" class="btn btn-outline-info" id="btn" value="クリア"></div>
 	</form>
-<!--	<script>-->
-<!--		window.addEventListener('DOMContentLoaded', function () {-->
-<!--			const btn = document.getElementById('btn');-->
-<!--			btn.addEventListener('click', confirmation, false);-->
+	<script>
+		window.addEventListener('DOMContentLoaded', function () {
+			const btn = document.getElementById('btn');
+			btn.addEventListener('click', confirmation, true);
 
-<!--			function confirmation() {-->
-<!--				const v = confirm('本当にクリアしますか？');-->
-<!--				if (v === true) {-->
-
-<!--				}-->
-<!--			}-->
-<!--		});-->
-<!--	</script>-->
+			function confirmation() {
+				const v = confirm('本当にクリアしますか？');
+				if (v === false) {
+					event.preventDefault();
+				}
+			}
+		});
+	</script>
 
 </body>
 
