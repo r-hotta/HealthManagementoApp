@@ -4,7 +4,8 @@
 <head>
 	<title>一覧 - </title>
 	<meta charset="utf-8" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="hyou.css">
 	<link rel="stylesheet" th:href="@{/haikei.css}">
 
@@ -31,12 +32,12 @@
 			<th>編集</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
-<td>
-			<form th:action="@{/day2}">
-							<input type="hidden" name="id" th:value="${res.id}">
-						    <div><input type="submit" class = "btn btn-outline-warning" th:value="${res.name}"></div>
-						</form>
-						</td>
+			<td>
+				<form th:action="@{/day2}">
+					<input type="hidden" name="id" th:value="${res.id}">
+					<div><input type="submit" class="btn btn-outline-warning" th:value="${res.name}"></div>
+				</form>
+			</td>
 			<td th:text="${res.seibetu}"></td>
 			<td th:text="${res.age}"></td>
 			<td th:text="${res.sinntyou}"></td>
@@ -46,20 +47,20 @@
 			<td th:text="${res.memo}"></td>
 			<td th:text="${res.type}"></td>
 			<td>
-						<form th:action="@{/edit2/{id}(id=${res.id})}">
-						<div><input type="submit" class = "btn btn-outline-warning" value="編集" ></div>
-						</form>
-					</td>
-<!--			<td>-->
-<!--				<form th:action="@{/del2/{id}(id=${res.id})}">-->
-<!--					<input type="submit" value="削除" />-->
-<!--				</form>-->
-<!--			</td>-->
-<!--			<td>-->
-<!--				<form th:action="@{/cha2/{id}(id=${res.id})}">-->
-<!--					<input type="submit" value="判定変更" />-->
-<!--				</form>-->
-<!--			</td>-->
+				<form th:action="@{/edit2/{id}(id=${res.id})}">
+					<div><input type="submit" class="btn btn-outline-warning" value="編集"></div>
+				</form>
+			</td>
+			<!--			<td>-->
+			<!--				<form th:action="@{/del2/{id}(id=${res.id})}">-->
+			<!--					<input type="submit" value="削除" />-->
+			<!--				</form>-->
+			<!--			</td>-->
+			<!--			<td>-->
+			<!--				<form th:action="@{/cha2/{id}(id=${res.id})}">-->
+			<!--					<input type="submit" value="判定変更" />-->
+			<!--				</form>-->
+			<!--			</td>-->
 		</tr>
 	</table>
 	<p></p>
@@ -68,13 +69,26 @@
 
 	<div>
 		<form action="#" method="get" th:action="@{/form}">
-		<div><input type="submit" class = "btn btn-outline-success" value="健康者一覧" ></div>
+			<div><input type="submit" class="btn btn-outline-success" value="健康者一覧"></div>
 		</form>
 	</div>
 	<p></p>
 	<form action="#" method="get" th:action="@{/alldel2}">
-    <div><input type="submit" class = "btn btn-outline-info" value="クリア" ></div>
-    </form>
+		<div><input type="submit" class="btn btn-outline-info" id="btn" value="クリア"></div>
+	</form>
+	<script>
+		window.addEventListener('DOMContentLoaded', function () {
+			const btn = document.getElementById('btn');
+			btn.addEventListener('click', confirmation, true);
+
+			function confirmation() {
+				const v = confirm('本当にクリアしますか？');
+				if (v === false) {
+					event.preventDefault();
+				}
+			}
+		});
+	</script>
 </body>
 
 </html>
