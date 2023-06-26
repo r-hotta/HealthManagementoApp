@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>予定編集</title>
+	<meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/haikei.css}">
+</head>
+
+<body>
+	<div align="center">
+	<h1 th:text="${title}"></h1>
+	<div th:each="res : ${dbList}" th:object="${input}">
+		<form action="#" method="get" th:action="@{/saisin2/__*{id}__/exe}">
+			<input type="hidden" name="id" th:value="${res.id}">
+					
+					
+			<table>
+				<tr >
+					<td>
+						<p>名前：</p>
+					</td>
+					<td>
+						<p><input type="text" name="name" th:value="*{name}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>年齢：</p>
+					</td>
+					<td>
+						<p><input type="text" name="age" th:value="*{age}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>身長：</p>
+					</td>
+					<td>
+						<p><input type="text" name="sinntyou" th:value="*{sinntyou}" size="{0}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>体重：</p>
+					</td>
+					<td>
+						<p><input type="text" name="taijuu" th:value="*{taijuu}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>血圧(上)：</p>
+					</td>
+					<td>
+						<p><input type="text" name="ketuatuue" th:value="*{ketuatuue}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>血圧(下)：</p>
+					</td>
+					<td>
+						<p><input type="text" name="ketuatusita" th:value="*{ketuatusita}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>メモ：</p>
+					</td>
+					<td>
+						<p><input type="text" name="memo" th:value="*{memo}"></p>
+					</td>
+					<td>
+						<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>性別：</p>
+					</td>
+					<td>
+						<p>
+							<select name="seibetu" required>
+								<option value="">選択してください</option>
+								<option>男</option>
+								<option>女</option>
+								<option>その他</option>
+							</select>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<div><input type="submit" class="btn btn-outline-warning rounded-pill" value="更新"></div>
+		</form>
+<!--	<p></p>-->
+<!--	<div align="center">-->
+<!--	<table>-->
+<!--		<tr th:each=" res : ${dbList}">-->
+<!--			<td>-->
+<!--			<form th:action="@{/del2/{id}(id=${res.id})}">-->
+<!--			<div><input type="submit" class = "btn btn-outline-danger" value="削除" ></div>-->
+<!--		</form>	-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				<form th:action="@{/cha2/{id}(id=${res.id})}">-->
+<!--				<div><input type="submit" class = "btn btn-outline-secondary" value="判定変更" ></div>-->
+<!--		</form>-->
+<!--			</td>-->
+<!--		</tr>-->
+		
+<!--	</table>-->
+	
+<!--	<p></p>-->
+<!--		<td>-->
+
+<!--					<form action="#" method="get" th:action="@{/batform}">-->
+<!--						<div><input type="submit" class="btn btn-outline-danger" value="再診者一覧へ戻る"></div>-->
+<!--					</form>-->
+<!--				</td>-->
+</body>
+
+</html>

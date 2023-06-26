@@ -30,7 +30,7 @@
 			<th>判定</th>
 			<th>編集</th>
 		</tr>
-		<tr th:each=" res : ${dbList2}">
+		<tr th:each=" res : ${dbList}">
 <td>
 			<form th:action="@{/day2}">
 							<input type="hidden" name="id" th:value="${res.id}">

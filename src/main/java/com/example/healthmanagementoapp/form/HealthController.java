@@ -53,8 +53,10 @@ public class HealthController {
 	@RequestMapping("/batform")
 	public String batform(Model model, Input input) {
 		model.addAttribute("title", "再診者一覧ページ");
-		List<Ent> list2 = entformdao2.searchDb();
-		model.addAttribute("dbList2", list2);
+		List<Ent> list = entformdao2.searchDb();
+		
+		model.addAttribute("dbList", list);
+		model.addAttribute("dbList2", list);
 
 		return "batform";
 
@@ -78,21 +80,12 @@ public class HealthController {
 		return "day2";
 	}
 	
-	@RequestMapping("/set")
-	public String settime(Model model, Input input, Long id) {
-		Calendar calendar = Calendar.getInstance();
-		Date date = calendar.getTime();
+	@RequestMapping("/saisin")
+	public String settime(Model model, Input input, Long id, String name) {
+		
 
-		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
-
-		//			SimpleDateFormat clock = new SimpleDateFormat("HH:mm:ss");
-		Ent ent = new Ent();
-		Ent2 ent2 = new Ent2();
-
-		ent.setHiduke(day.format(date));
-//entformdao.insertH(ent2);
-		entformdao.updateDb(id, ent);
-		return "redirect:/day";
+//		entformdao.updateDb(id, ent);
+		return "saisin";
 
 	}
 	@RequestMapping("/add")
@@ -113,6 +106,17 @@ public class HealthController {
 		model.addAttribute("title", "確認ページ");
 		return "confirm";
 	}
+	@RequestMapping("/confirm2")
+	public String confirm2(@Validated Input input, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("title", "入力ページ");
+			return "saisin";
+		}
+
+		model.addAttribute("title", "確認ページ");
+		return "confirm2";
+	}
 
 	@RequestMapping("/complete")
 	public String complete(Model model, Input input, Long id, Input2 input2) {
@@ -124,7 +128,7 @@ public class HealthController {
 		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
 
 		Ent entform = new Ent();
-		Ent2 ent2 = new Ent2();
+		
 		String health = "異常なし";
 		
 		entform.setHiduke(day.format(date));	
@@ -140,9 +144,6 @@ public class HealthController {
 		entform.setMemo(input.getMemo());
 		entform.setHiduke(input.getHiduke());
 		
-//		ent2.setName(input.getName());
-////		ent2.setHiduke(input.getHiduke());
-//		ent2.setMemo(input.getMemo());
 
 		entformdao.insertDb(entform);
 		
@@ -154,10 +155,15 @@ public class HealthController {
 	public String complete2(Model model, Input input) {
 		model.addAttribute("title", "完了ページ");
 		Ent entform = new Ent();
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+
+		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
 		String health = "異常あり";
 		
+		entform.setHiduke(day.format(date));
 		entform.setType(health);
-		
+		input.setHiduke(entform.getHiduke());
 		entform.setName(input.getName());
 		entform.setSeibetu(input.getSeibetu());
 		entform.setAge(input.getAge());
@@ -166,11 +172,74 @@ public class HealthController {
 		entform.setKetuatuue(input.getKetuatuue());
 		entform.setKetuatusita(input.getKetuatusita());
 		entform.setMemo(input.getMemo());
+		entform.setHiduke(input.getHiduke());
 
-		
 		entformdao2.insertDb(entform);
 
 		return "complete2";
+
+	}
+	@RequestMapping("/kannryou")
+	public String kannryou(Model model, Input input, Input2 input2, Long id, String name) {
+		model.addAttribute("title", "再診登録完了ページ");
+		
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+
+		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
+
+		Ent entform = new Ent();
+		String health = "異常なし";
+		
+		entform.setHiduke(day.format(date));	
+		entform.setType(health);
+		input.setHiduke(entform.getHiduke());
+		entform.setName(input.getName());
+		entform.setSeibetu(input.getSeibetu());
+		entform.setAge(input.getAge());
+		entform.setSinntyou(input.getSinntyou());
+		entform.setTaijuu(input.getTaijuu());
+		entform.setKetuatuue(input.getKetuatuue());
+		entform.setKetuatusita(input.getKetuatusita());
+		entform.setMemo(input.getMemo());
+		entform.setHiduke(input.getHiduke());
+
+		entformdao.updateDb(id, entform);
+		
+		System.out.println(input.getHiduke());
+		return "kannryou";
+
+	}
+	@RequestMapping("/kannryou2")
+	public String kannryou2(Model model, Input input, Long id, String name) {
+		model.addAttribute("title", "完了ページ");
+		
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+
+		SimpleDateFormat day= new SimpleDateFormat("MM/dd");
+
+		Ent entform = new Ent();
+		
+		String health = "異常あり";
+		
+		entform.setHiduke(day.format(date));	
+		entform.setType(health);
+		input.setHiduke(entform.getHiduke());
+		entform.setName(input.getName());
+		entform.setSeibetu(input.getSeibetu());
+		entform.setAge(input.getAge());
+		entform.setSinntyou(input.getSinntyou());
+		entform.setTaijuu(input.getTaijuu());
+		entform.setKetuatuue(input.getKetuatuue());
+		entform.setKetuatusita(input.getKetuatusita());
+		entform.setMemo(input.getMemo());
+		entform.setHiduke(input.getHiduke());
+		
+		entformdao2.updateDb(id, entform);
+		
+		System.out.println(input.getHiduke());
+		return "redirect:/batform";
 
 	}
 	
@@ -375,6 +444,56 @@ public class HealthController {
 
 			//一覧画面へリダイレクト
 			return "redirect:/batform";
+		}
+		@RequestMapping("/saisin2/{id}")
+		public String saisin2(@PathVariable Long id, Model model) {
+
+			//DBからデータを1件取ってくる(リストの形)
+			List<Ent> list = entformdao2.selectOne(id);
+
+			//リストから、オブジェクトだけをピックアップ
+			Ent entformdb = list.get(0);
+
+			//スタンバイしているViewに向かって、データを投げる
+			model.addAttribute("input", entformdb);
+			model.addAttribute("title", "再登録ページ");
+			model.addAttribute("dbList", list);
+			return "saisin2";
+		}
+		@RequestMapping("/saisin2/{id}/exe")
+		public String saisinExe2(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
+			if (result.hasErrors()) {
+				model.addAttribute("title", "入力ページ");
+				return "saisin2";
+			}
+			Calendar calendar = Calendar.getInstance();
+			Date date = calendar.getTime();
+
+			SimpleDateFormat day= new SimpleDateFormat("MM/dd");
+
+			Ent entform = new Ent();
+			
+			String health = "異常あり";
+			
+			List<Ent> list = entformdao2.selectOne(id);
+			model.addAttribute("dbList", list);
+			entform.setHiduke(day.format(date));	
+			entform.setType(health);
+			input.setHiduke(entform.getHiduke());
+			entform.setName(input.getName());
+			entform.setSeibetu(input.getSeibetu());
+			entform.setAge(input.getAge());
+			entform.setSinntyou(input.getSinntyou());
+			entform.setTaijuu(input.getTaijuu());
+			entform.setKetuatuue(input.getKetuatuue());
+			entform.setKetuatusita(input.getKetuatusita());
+			entform.setMemo(input.getMemo());
+			entform.setHiduke(input.getHiduke());
+			//更新の実行
+			entformdao2.updateDb(id, entform);
+
+			//一覧画面へリダイレクト
+			return "kannryou2";
 		}
 		
 		

@@ -17,7 +17,7 @@
 
 		<tr>
 			<th>名前</th>
-			<th>日付</th>
+			<th>受診日</th>
 			<th>メモ</th>
 			<th>削除</th>
 		</tr>
@@ -38,7 +38,7 @@
 	<table class="b">
 		<tr>
 			<td>
-				<form action="#" method="get" th:action="@{/set}">
+				<form action="#" method="get" th:action="@{/saisin}">
 					<input type="hidden" name="name" th:value="*{name}">
 					<input type="hidden" name="hiduke" th:value="*{hiduke}">
 					<input type="hidden" name="memo" th:value="*{memo}">

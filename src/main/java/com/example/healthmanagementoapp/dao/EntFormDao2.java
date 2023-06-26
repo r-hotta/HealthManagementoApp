@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.example.healthmanagementoapp.entity.Ent;
+import com.example.healthmanagementoapp.entity.Ent2;
 
 @Component
 public class EntFormDao2 {
@@ -22,8 +23,8 @@ public class EntFormDao2 {
 	}
 
 	public void insertDb(Ent ent) {
-		db.update("INSERT INTO batform (name, seibetu, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
-				ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),ent.getKetuatuue(),ent.getKetuatusita(),ent.getMemo(),ent.getType()
+		db.update("INSERT INTO batform (name, seibetu, age, sinntyou, taijuu, ketuatuue, ketuatusita, memo, type, hiduke) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),ent.getKetuatuue(),ent.getKetuatusita(),ent.getMemo(),ent.getType(),ent.getHiduke()
 				);}
 
 	public List<Ent> searchDb() {
@@ -117,7 +118,7 @@ public class EntFormDao2 {
 			Ent entformdb = new Ent();
 
 			//id、nameのデータをentformdbに移す
-			entformdb.setId((int) result1.get("id"));
+//			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
 			entformdb.setSeibetu((String) result1.get("seibetu"));
 			entformdb.setAge((int) result1.get("age"));
@@ -127,10 +128,10 @@ public class EntFormDao2 {
 			entformdb.setKetuatusita((int) result1.get("ketuatusita"));
 			entformdb.setMemo((String) result1.get("memo"));
 			entformdb.setType((String) result1.get("type"));
+			entformdb.setHiduke((String) result1.get("hiduke"));
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
 			resultDb2.add(entformdb);
 		}
-
 		//Controllerに渡す
 		return resultDb2;
 	}
@@ -154,8 +155,16 @@ public class EntFormDao2 {
 		//コンソールに表示
 		System.out.println("編集の実行");
 		//UPDATEを実行
-		db.update("UPDATE batform SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
-				ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), id);
+		db.update("UPDATE batform SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
+				ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent.getHiduke(), id);
 	}
+	//更新の実行(UPDATE)
+			public void updateDbn(String name, Ent ent, Ent2 ent2) {
+				//コンソールに表示
+				System.out.println("編集の実行");
+				//UPDATEを実行
+				db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
+						ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent2.getHiduke(), name);
+			}
 }
 

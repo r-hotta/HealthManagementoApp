@@ -17,7 +17,7 @@
 
 		<tr>
 			<th>名前</th>
-			<th>日付</th>
+			<th>受診日</th>
 			<th>メモ</th>
 			<th>削除</th>
 		</tr>
@@ -36,14 +36,12 @@
 	</table>
 	<p></p>
 	<table class="b">
-		<tr>
+		<tr th:each="res : ${dbList}">
 			<td>
-				<form action="#" method="get" th:action="@{/set}">
-					<input type="hidden" name="name" th:value="*{name}">
-					<input type="hidden" name="hiduke" th:value="*{hiduke}">
-					<input type="hidden" name="memo" th:value="*{memo}">
-					<input type="submit" value="再診">
-				</form>
+				<form th:action="@{/saisin2/{id}(id=${res.id})}">
+					<input type="hidden" name="id" th:value="${res.id}">
+						    <div><input type="submit" class = "btn btn-outline-warning" value="再診" ></div>
+						</form>
 
 			</td>
 

@@ -132,7 +132,7 @@ public class EntFormDao {
 		//Controllerに渡す
 		return resultDb2;
 	}
-	public List<Ent2> selectOne(String name) {
+	public List<Ent> selectOne(String name) {
 
 		//コンソールに表示
 		System.out.println("編集画面を出します");
@@ -141,18 +141,25 @@ public class EntFormDao {
 		List<Map<String, Object>> resultDb1 = db.queryForList("SELECT * FROM form where name=?", name);
 
 		//画面に表示しやすい形のList(resultDB2)を用意
-		List<Ent2> resultDb2 = new ArrayList<Ent2>();
+		List<Ent> resultDb2 = new ArrayList<Ent>();
 
 		//1件ずつピックアップ
 		for (Map<String, Object> result1 : resultDb1) {
 
 			//データ1件分を1つのまとまりとするので、EntForm型の「entformdb」を生成
-			Ent2 entformdb = new Ent2();
+			Ent entformdb = new Ent();
 
 			//id、nameのデータをentformdbに移す
 //			entformdb.setId((int) result1.get("id"));
 			entformdb.setName((String) result1.get("name"));
+			entformdb.setSeibetu((String) result1.get("seibetu"));
+			entformdb.setAge((int) result1.get("age"));
+			entformdb.setSinntyou((int) result1.get("sinntyou"));
+			entformdb.setTaijuu((int) result1.get("taijuu"));
+			entformdb.setKetuatuue((int) result1.get("ketuatuue"));
+			entformdb.setKetuatusita((int) result1.get("ketuatusita"));
 			entformdb.setMemo((String) result1.get("memo"));
+			entformdb.setType((String) result1.get("type"));
 			entformdb.setHiduke((String) result1.get("hiduke"));
 			//移し替えたデータを持ったentformdbを、resultDB2に入れる
 			resultDb2.add(entformdb);
