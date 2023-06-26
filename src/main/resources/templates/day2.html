@@ -22,6 +22,12 @@
 		<tr>
 			<th>名前</th>
 			<th>受診日</th>
+			<th>性別</th>
+			<th>年齢</th>
+			<th>身長(cm)</th>
+			<th>体重(kg)</th>
+			<th>血圧（上）</th>
+			<th>血圧（下）</th>
 			<th>メモ</th>
 			<th>削除</th>
 		</tr>
@@ -29,7 +35,14 @@
 			<!--	<td th:text="${res.id}"></td>-->
 			<td th:text="${res.name}"></td>
 			<td th:text="${res.hiduke}"></td>
+			<td th:text="${res.seibetu}"></td>
+			<td th:text="${res.age}"></td>
+			<td th:text="${res.sinntyou}"></td>
+			<td th:text="${res.taijuu}"></td>
+			<td th:text="${res.ketuatuue}"></td>
+			<td th:text="${res.ketuatusita}"></td>
 			<td th:text="${res.memo}"></td>
+			
 			<td>
 				<form th:action="@{/del2/{id}(id=${res.id})}">
 					<input type="submit" class = "btn btn-outline-dark" value="削除">
