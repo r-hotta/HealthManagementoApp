@@ -16,7 +16,7 @@
 <!--window.confirm('これは確認ダイアログです');-->
 <!--</script>-->
 	<h1 th:text="${title}"></h1>
-
+<p></p>
 	<table class="a">
 
 		<tr>
@@ -32,7 +32,7 @@
 			<td th:text="${res.memo}"></td>
 			<td>
 				<form th:action="@{/del2/{id}(id=${res.id})}">
-					<input type="submit" value="削除">
+					<input type="submit" class = "btn btn-outline-dark" value="削除">
 				</form>
 			</td>
 
@@ -44,7 +44,7 @@
 			<td>
 				<form th:action="@{/saisin2/{id}(id=${res.id})}">
 					<input type="hidden" name="id" th:value="${res.id}">
-						    <div><input type="submit" class = "btn btn-outline-warning" value="再診" ></div>
+						    <div><input type="submit" class = "btn btn-outline-secondary" value="再診" ></div>
 						</form>
 
 			</td>
