@@ -326,6 +326,7 @@ List<Ent> list = entformdao2.selectOne(id);
 			entform.setKetuatuue(input.getKetuatuue());
 			entform.setKetuatusita(input.getKetuatusita());
 			entform.setMemo(input.getMemo());
+			
 			entform.setHiduke(input.getHiduke());
 
 			entformdao.deleteDb(id);
@@ -412,7 +413,9 @@ List<Ent> list = entformdao2.selectOne(id);
 			entform.setKetuatuue(input.getKetuatuue());
 			entform.setKetuatusita(input.getKetuatusita());
 			entform.setMemo(input.getMemo());
-			
+			entform.setHiduke(input.getHiduke());
+			System.out.println(entform.getHiduke());
+			System.out.println(input.getHiduke());
 			//更新の実行
 			entformdao.updateDb(id, entform);
 			//一覧画面へリダイレクト
@@ -457,6 +460,7 @@ List<Ent> list = entformdao2.selectOne(id);
 			entform.setKetuatuue(input.getKetuatuue());
 			entform.setKetuatusita(input.getKetuatusita());
 			entform.setMemo(input.getMemo());
+			entform.setHiduke(input.getHiduke());
 			
 			//更新の実行
 			entformdao2.updateDb(id, entform);

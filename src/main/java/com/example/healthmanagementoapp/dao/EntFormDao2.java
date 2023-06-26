@@ -164,7 +164,7 @@ public class EntFormDao2 {
 				System.out.println("編集の実行");
 				//UPDATEを実行
 				db.update("UPDATE form SET name = ?, seibetu = ?, age = ?, sinntyou = ?, taijuu = ?, ketuatuue = ?, ketuatusita = ?, memo = ?, type = ?, hiduke = ? WHERE id = ?", ent.getName(), ent.getSeibetu(), ent.getAge(), ent.getSinntyou(), ent.getTaijuu(),
-						ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent2.getHiduke(), name);
+						ent.getKetuatuue(), ent.getKetuatusita(), ent.getMemo(), ent.getType(), ent.getHiduke(), name);
 			}
 }
 
