@@ -14,7 +14,17 @@
 <body>
 
 	<h1 th:text="${title}"></h1>
+<form method="get" action="#" th:action="@{/dayk2}" th:object="${input}" >
 
+		<p>名前：<input type="text" name="name" ></p>
+		<div th:each=" res : ${dbList}"><input type="hidden" name="id" th:value="${res.id}"></div>
+
+		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
+		
+
+		<div><input type="submit" value="検索"></div>
+
+	</form>
 
 	<table>
 
