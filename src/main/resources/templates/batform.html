@@ -8,6 +8,51 @@
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="hyou.css">
 	<link rel="stylesheet" th:href="@{/haikei.css}">
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script>
+
+    // Firebaseの設定情報
+   // Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBlGToMDazptzsCPmy5xKnQ9PN1BODpwmE",
+  authDomain: "team2-1d264.firebaseapp.com",
+  databaseURL: "https://team2-1d264-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "team2-1d264",
+  storageBucket: "team2-1d264.appspot.com",
+  messagingSenderId: "323984337205",
+  appId: "1:323984337205:web:495a4888ebbac5dacac47c"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.database();
+
+    function sendData() {
+    
+      const input = document.getElementById("message")
+
+      // Firebase Realtime Databaseにデータを送信
+      db.ref("message").set(input.value)
+
+      // const data = {
+      //     message: input.value,
+      //     timestamp: new Date().toISOString()
+      // };
+
+      // // Firebase Realtime Databaseにデータを送信
+      // db.ref("messages").push(data)
+
+      // // Firebase Realtime Databaseにデータを送信
+      // db.ref("messages").push(data)
+      //     .then(() => {
+      //     console.log("データが送信されました。");
+      //     })
+      //     .catch(error => {
+      //     console.error("データの送信エラー:", error);
+      //     });
+    }
+
+  </script>
 
 </head>
 
@@ -22,6 +67,8 @@
 		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
 
 	</form>
+	<input type="text" id="message">
+  <button type="button" onclick="sendData()">データを送信</button>
 
 	<table>
 

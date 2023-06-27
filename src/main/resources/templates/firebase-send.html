@@ -7,14 +7,16 @@
 <script>
 
     // Firebaseの設定情報
-    const firebaseConfig = {
+   // Your web app's Firebase configuration
+const firebaseConfig = {
   apiKey: "AIzaSyBlGToMDazptzsCPmy5xKnQ9PN1BODpwmE",
   authDomain: "team2-1d264.firebaseapp.com",
+  databaseURL: "https://team2-1d264-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "team2-1d264",
   storageBucket: "team2-1d264.appspot.com",
   messagingSenderId: "323984337205",
   appId: "1:323984337205:web:495a4888ebbac5dacac47c"
-    };
+};
 
     firebase.initializeApp(firebaseConfig);
     var db = firebase.database();
@@ -24,7 +26,7 @@
       const input = document.getElementById("message")
 
       // Firebase Realtime Databaseにデータを送信
-      db.ref("messages").push(input.value)
+      db.ref("message").set(input.value)
 
       // const data = {
       //     message: input.value,
@@ -50,7 +52,7 @@
 <body>
   <h2>Firebase Realtime Database データ送信</h2>
   <input type="text" id="message">
-  <button type="button" onclick="sendData()">データを送信</button>
+  <button type="button" onclick="sendData()">送信</button>
 </body>
 
 </html>
