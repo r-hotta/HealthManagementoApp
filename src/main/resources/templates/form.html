@@ -69,20 +69,17 @@
 
 		</tr>
 	</table>
-	<p></p>
-
-	<form action="#" method="get" th:action="@{/add}">
+		<p></p>
+	<table>
+		<tr>
+			<td><form action="#" method="get" th:action="@{/add}">
 
 		<div><input type="submit" class="btn btn-outline-success" value="登録画面"></div>
-	</form>
-
-	<p></p>
-
-	<form action="#" method="get" th:action="@{/batform}">
+	</form></td>
+			<td><form action="#" method="get" th:action="@{/batform}">
 		<div><input type="submit" class="btn btn-outline-danger" value="再診者一覧"></div>
-	</form>
-	<p></p>
-	<form action="#" method="get" th:action="@{/alldel}">
+	</form></td>
+			<td><form action="#" method="get" th:action="@{/alldel}">
 		<div><input type="submit" class="btn btn-outline-info" id="btn" value="クリア"></div>
 	</form>
 	<script>
@@ -97,10 +94,25 @@
 				}
 			}
 		});
-	</script>
+	</script></td>
+		</tr>
+	</table>
+
+
+	
+
 	<p></p>
-</body>
-<footer>
-    <div><a href="#">ページトップへ戻る</a></div>
+
+	
+	<p></p>
+	
+	<p></p>
+	 <div class="push"></div>
+	 <footer>
+    <div class="link"><a href="#">ページトップへ戻る</a></div>
+    <p></p>
+     <p>©︎2023-2023　Kato Corporation.</p>
   </footer>
+</body>
+
 </html>
