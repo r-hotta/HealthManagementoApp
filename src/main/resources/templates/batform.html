@@ -72,15 +72,13 @@
 	</table>
 	<p></p>
 
-	<p></p>
-
-	<div>
-		<form action="#" method="get" th:action="@{/form}">
+	<table>
+		<tr>
+			
+			<td><form action="#" method="get" th:action="@{/form}">
 			<div><input type="submit" class="btn btn-outline-success" value="健康者一覧"></div>
-		</form>
-	</div>
-	<p></p>
-	<form action="#" method="get" th:action="@{/alldel2}">
+		</form></td>
+			<td><form action="#" method="get" th:action="@{/alldel}">
 		<div><input type="submit" class="btn btn-outline-info" id="btn" value="クリア"></div>
 	</form>
 	<script>
@@ -95,7 +93,9 @@
 				}
 			}
 		});
-	</script>
+	</script></td>
+		</tr>
+	</table>
 </body>
 
 </html>
