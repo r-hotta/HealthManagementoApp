@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Firebase Realtime Database データ送信</title>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script>
+
+    // Firebaseの設定情報
+    const firebaseConfig = {
+  apiKey: "AIzaSyBlGToMDazptzsCPmy5xKnQ9PN1BODpwmE",
+  authDomain: "team2-1d264.firebaseapp.com",
+  projectId: "team2-1d264",
+  storageBucket: "team2-1d264.appspot.com",
+  messagingSenderId: "323984337205",
+  appId: "1:323984337205:web:495a4888ebbac5dacac47c"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.database();
+
+    function sendData() {
+    
+      const input = document.getElementById("message")
+
+      // Firebase Realtime Databaseにデータを送信
+      db.ref("messages").push(input.value)
+
+      // const data = {
+      //     message: input.value,
+      //     timestamp: new Date().toISOString()
+      // };
+
+      // // Firebase Realtime Databaseにデータを送信
+      // db.ref("messages").push(data)
+
+      // // Firebase Realtime Databaseにデータを送信
+      // db.ref("messages").push(data)
+      //     .then(() => {
+      //     console.log("データが送信されました。");
+      //     })
+      //     .catch(error => {
+      //     console.error("データの送信エラー:", error);
+      //     });
+    }
+
+  </script>
+</head>
+
+<body>
+  <h2>Firebase Realtime Database データ送信</h2>
+  <input type="text" id="message">
+  <button type="button" onclick="sendData()">データを送信</button>
+</body>
+
+</html>

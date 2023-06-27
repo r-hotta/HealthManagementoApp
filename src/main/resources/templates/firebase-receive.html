@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Firebase Realtime Database データ受信</title>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script>
+
+    // Firebaseの設定情報
+   const firebaseConfig = {
+  apiKey: "AIzaSyBlGToMDazptzsCPmy5xKnQ9PN1BODpwmE",
+  authDomain: "team2-1d264.firebaseapp.com",
+  projectId: "team2-1d264",
+  storageBucket: "team2-1d264.appspot.com",
+  messagingSenderId: "323984337205",
+  appId: "1:323984337205:web:495a4888ebbac5dacac47c"
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.database();
+
+    db.ref("messages").on("child_added", function(snapshot) {
+      var data = snapshot.val();
+      console.log("受信データ:", data);
+      const messageArea = document.getElementById("messageArea")
+      const div = document.createElement("div")
+      const message = document.createElement("h3")
+      message.innerHTML = data  
+      div.setAttribute("style", "padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px; background-color: #ffff99;")
+      div.appendChild(message)
+      messageArea.appendChild(div)
+    });
+
+  </script>
+</head>
+
+<body>
+  <h2>Firebase Realtime Database データ受信</h2>
+  <div id="messageArea"></div>
+</body>
+
+</html>
