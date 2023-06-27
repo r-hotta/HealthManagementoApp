@@ -1,12 +1,13 @@
 h1 {
 	/*   color: orange;*/
 	font-size: 50px;
+	padding: 70px;
+	/* 余白指定 */
+	margin: 0 auto;
 }
 
 body {
-	padding: 80px;
-	/* 余白指定 */
-	margin: 0 auto;
+
 	/*    background:beige;*/
 	background-image: url(../haikeiimg/haikei-3.jpg);
 }
