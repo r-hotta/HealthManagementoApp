@@ -17,7 +17,7 @@
 	<h1 th:text="${title}"></h1>
 	<form method="get" action="#" th:action="@{/dayk}" th:object="${input}">
 
-		<div><p>名前 <input type="text" name="name" ><input type="submit" value="検索"></p></div>
+		<div><p>名前検索欄 <input type="text" name="name" ><input type="submit" value="検索"></p></div>
 		<div th:each=" res : ${dbList}"><input type="hidden" name="id" th:value="${res.id}"></div>
 
 		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>

@@ -132,7 +132,7 @@ List<Ent> list = entformdao2.selectOne(id);
 			return "add";
 		}
 
-		model.addAttribute("title", "確認ページ");
+		model.addAttribute("title", "入力内容確認ページ");
 		return "confirm";
 	}
 
