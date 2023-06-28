@@ -75,7 +75,7 @@ const firebaseConfig = {
 <div class = "child"></div>
 <div class = "child"></div>
 <div class = "child"><div ><p><input type="text" id="message"><button type="button" onclick="sendData()">データを送信</button></p></div></div>
-<div class = "child"><div ><p>   名前検索欄 <input type="text" name="name" ><input type="submit" value="検索"></div></div></p>
+<div class = "child"><div ><p>    名前検索欄 <input type="text" name="name" ><input type="submit" value="検索"></p></div></div>
 <div class = "child"></div>
 <div th:each=" res : ${dbList}"><input type="hidden" name="id" th:value="${res.id}"></div>
 <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
