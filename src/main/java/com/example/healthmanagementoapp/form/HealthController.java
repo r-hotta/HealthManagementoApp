@@ -138,7 +138,7 @@ List<Ent> list = entformdao2.selectOne(id);
 
 	@RequestMapping("/complete")
 	public String complete(Model model, Input input, Long id, Input2 input2) {
-		model.addAttribute("title", "完了ページ");
+		model.addAttribute("title", "登録が完了しました");
 		
 		Calendar calendar = Calendar.getInstance();
 		Date date = calendar.getTime();
@@ -170,7 +170,7 @@ List<Ent> list = entformdao2.selectOne(id);
 	}
 	@RequestMapping("/complete2")
 	public String complete2(Model model, Input input) {
-		model.addAttribute("title", "完了ページ");
+		model.addAttribute("title", "登録が完了しました");
 		Ent entform = new Ent();
 		Calendar calendar = Calendar.getInstance();
 		Date date = calendar.getTime();
