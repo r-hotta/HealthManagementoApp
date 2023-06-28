@@ -1,5 +1,5 @@
 @charset "UTF-8";
-body{
+.set{
 	 min-height: 100vh;/*①高さの最小値*/
   position: relative;/*②相対位置*/
 }
@@ -8,7 +8,7 @@ body{
 }
 footer{
     width: 100%;
-    height: 100px;
+    height: 80px;
     background-color: rgb(140, 242, 211);
     color: white;
     text-align: center;

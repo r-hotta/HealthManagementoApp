@@ -6,9 +6,27 @@
 <title>"判定変更ページ"</title>
 <link rel="stylesheet" th:href="@{/haikei.css}">
 <link rel="stylesheet" th:href="@{/hyou.css}">
-<div align="center">
+<link rel="stylesheet" th:href="@{/header.css}">
+
 </head>
 <body>
+	<div class="set">
+	<header>
+	<h2>
+		<a href="/home">健康管理システム</a>
+	</h2>
+	<nav class="pc-nav">
+		<ul>
+			<li><a href="/form">健康者一覧</a></li>
+			<li><a href="/batform">再診者一覧</a></li>
+			<li><a href="/add">入力</a></li>
+		</ul>
+	</nav>
+
+
+</header>
+
+<div class="space"></div>
 <h1><span th:text="${title}"></span></h1>
 <div th:object="${input}">
 	<table>
@@ -41,7 +59,7 @@
 				<tr>
 				<td th:text="*{type}"></td>
 			</tr>
-			<p></p>
+			
 		</table>
 		<p></p>
 		<h2>今の判定から本当に変更しますか？</h2>
@@ -67,6 +85,7 @@
 
 		</form>
 		
+</div>
 </div>
 </body>
 </html>

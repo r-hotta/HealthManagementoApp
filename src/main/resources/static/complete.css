@@ -45,17 +45,17 @@ h2 {
 	font-size: 40px;
 }
 
-h1 {
+.title {
 	font-size: 50px;
 	text-align: center;
-	height: 500px;
+	height: 400px;
    vertical-align: super;
 }
 
 p {
 	font-weight: bolder;
 	text-align: center;
-	 line-height: 700px;
+	 line-height: 500px;
 }
 
 form {
