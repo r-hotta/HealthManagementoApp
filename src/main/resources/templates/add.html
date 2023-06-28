@@ -11,7 +11,7 @@
 	<link rel="stylesheet" th:href="@{/footer.css}">
 
 
-	<p></p>
+	
 	<title>"データ挿入ページ"</title>
 	<style>
 		table {
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+	<div align="center">
 	<div class="set">
 	<header>
 	<h2>
@@ -31,7 +32,7 @@
 		<ul>
 			<li><a href="/form">健康者一覧</a></li>
 			<li><a href="/batform">再診者一覧</a></li>
-			<li><a href="/add">入力</a></li>
+			<li><a href="/add">新規登録</a></li>
 		</ul>
 	</nav>
 
@@ -40,8 +41,9 @@
 
 <div class="space"></div>
 	<h1 style="text-align:center" th:text="${title}">データ挿入ページ</h1>
+	<p></p>
 	<div class="container">
-		<form method="get" action="#" th:action="@{/confirm}" th:object="${input}">
+		<form method="get" action="#" th:action="@{/confirm}" th:object="${input}">	
 			<table>
 				<tr>
 					<td>
@@ -136,25 +138,25 @@
 			</table>
 			<div class="center"><input type="submit" class="btn btn-outline-success" value="確定"></div>
 
-			<button type="button" class="btn btn-outline-primary">Primary</button>
-			<button type="button" class="btn btn-outline-secondary">Secondary</button>
-			<button type="button" class="btn btn-outline-success">Success</button>
-			<button type="button" class="btn btn-outline-danger">Danger</button>
-			<button type="button" class="btn btn-outline-warning">Warning</button>
-			<button type="button" class="btn btn-outline-info">Info</button>
-			<button type="button" class="btn btn-outline-light">Light</button>
-			<button type="button" class="btn btn-outline-dark">Dark</button>
+<!--			<button type="button" class="btn btn-outline-primary">Primary</button>-->
+<!--			<button type="button" class="btn btn-outline-secondary">Secondary</button>-->
+<!--			<button type="button" class="btn btn-outline-success">Success</button>-->
+<!--			<button type="button" class="btn btn-outline-danger">Danger</button>-->
+<!--			<button type="button" class="btn btn-outline-warning">Warning</button>-->
+<!--			<button type="button" class="btn btn-outline-info">Info</button>-->
+<!--			<button type="button" class="btn btn-outline-light">Light</button>-->
+<!--			<button type="button" class="btn btn-outline-dark">Dark</button>-->
 
-			<button type="button" class="btn btn-primary">Primary</button>
-			<button type="button" class="btn btn-secondary">Secondary</button>
-			<button type="button" class="btn btn-success">Success</button>
-			<button type="button" class="btn btn-danger">Danger</button>
-			<button type="button" class="btn btn-warning">Warning</button>
-			<button type="button" class="btn btn-info">Info</button>
-			<button type="button" class="btn btn-light">Light</button>
-			<button type="button" class="btn btn-dark">Dark</button>
+<!--			<button type="button" class="btn btn-primary">Primary</button>-->
+<!--			<button type="button" class="btn btn-secondary">Secondary</button>-->
+<!--			<button type="button" class="btn btn-success">Success</button>-->
+<!--			<button type="button" class="btn btn-danger">Danger</button>-->
+<!--			<button type="button" class="btn btn-warning">Warning</button>-->
+<!--			<button type="button" class="btn btn-info">Info</button>-->
+<!--			<button type="button" class="btn btn-light">Light</button>-->
+<!--			<button type="button" class="btn btn-dark">Dark</button>-->
 
-			<button type="button" class="btn btn-link">Link</button>
+<!--			<button type="button" class="btn btn-link">Link</button>-->
 
 			<!--      <div style="margin-left:10%;margin-right:10%;"><a href="#" class= "btn-square" style="width:5%;padding:5px;font-size:20px;">確定</a></div>-->
 
@@ -169,6 +171,7 @@
 		
 		<p>©︎2023-2023　Kato Corporation.</p>
 	</footer>
+	</div>
 	</div>
 </body>
 

@@ -104,7 +104,7 @@ public class HealthController {
 	
 	@RequestMapping("/add")
 	public String add(Model model, Input input) {
-		model.addAttribute("title", "入力ページ");
+		model.addAttribute("title", "新規登録ページ");
 
 		return "add";
 
@@ -128,7 +128,7 @@ List<Ent> list = entformdao2.selectOne(id);
 	public String confirm(@Validated Input input, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("title", "入力ページ");
+			model.addAttribute("title", "新規登録ページ");
 			return "add";
 		}
 
@@ -229,7 +229,7 @@ List<Ent> list = entformdao2.selectOne(id);
 	}
 	@RequestMapping("/kannryou2")
 	public String kannryou2(Model model, Input input, Long id, String name) {
-		model.addAttribute("title", "完了ページ");
+		model.addAttribute("title", "再診登録完了ページ");
 		
 		Calendar calendar = Calendar.getInstance();
 		Date date = calendar.getTime();
@@ -442,7 +442,7 @@ List<Ent> list = entformdao2.selectOne(id);
 		@RequestMapping("/edit2/{id}/exe")
 		public String editExe2(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
 			if (result.hasErrors()) {
-				model.addAttribute("title", "入力ページ");
+				model.addAttribute("title", "編集ページ");
 				return "edit2";
 			}
 			
@@ -487,7 +487,7 @@ List<Ent> list = entformdao2.selectOne(id);
 		@RequestMapping("/saisin/{id}/exe")
 		public String saisinExe(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
 			if (result.hasErrors()) {
-				model.addAttribute("title", "入力ページ");
+				model.addAttribute("title", "再登録ページ");
 				return "saisin";
 			}
 			Calendar calendar = Calendar.getInstance();
@@ -538,7 +538,7 @@ List<Ent> list = entformdao2.selectOne(id);
 		@RequestMapping("/saisin2/{id}/exe")
 		public String saisinExe2(@PathVariable @Validated Long id,Model model, Input input, BindingResult result) {
 			if (result.hasErrors()) {
-				model.addAttribute("title", "入力ページ");
+				model.addAttribute("title", "再登録ページ");
 				return "saisin2";
 			}
 			Calendar calendar = Calendar.getInstance();

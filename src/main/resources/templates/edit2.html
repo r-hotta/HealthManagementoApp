@@ -6,9 +6,28 @@
 	<meta charset="utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/haikei.css}">
+<link rel="stylesheet" th:href="@{/header.css}">
+<link rel="stylesheet" th:href="@{/footer.css}">
 </head>
 
 <body>
+	<div class="set">
+	<header>
+	<h2>
+		<a href="/home">健康管理システム</a>
+	</h2>
+	<nav class="pc-nav">
+		<ul>
+			<li><a href="/form">健康者一覧</a></li>
+			<li><a href="/batform">再診者一覧</a></li>
+			<li><a href="/add">新規登録</a></li>
+		</ul>
+	</nav>
+
+
+</header>
+
+<div class="space"></div>
 	<div align="center">
 	<h1 th:text="${title}"></h1>
 	<div th:object="${input}">
@@ -111,7 +130,7 @@
 			<div><input type="submit" class="btn btn-outline-warning rounded-pill" value="更新"></div>
 		</form>
 	<p></p>
-	<div align="center">
+	
 	<table>
 		<tr th:each=" res : ${dbList}">
 			<td>
@@ -124,17 +143,26 @@
 				<div><input type="submit" class = "btn btn-outline-secondary" value="判定変更" ></div>
 		</form>
 			</td>
-		</tr>
-		
-	</table>
-	
-	<p></p>
-		<td>
+			<td>
 
 					<form action="#" method="get" th:action="@{/batform}">
 						<div><input type="submit" class="btn btn-outline-danger" value="再診者一覧へ戻る"></div>
 					</form>
 				</td>
+		</tr>
+		
+	</table>
+	
+	<div class="push"></div>
+	 
+	<footer>
+		<div class="link"><a href="#">ページトップへ戻る</a></div>
+		
+		<p>©︎2023-2023　Kato Corporation.</p>
+	</footer>
+	</div>
+	</div>
+	</div>
 </body>
 
 </html>
