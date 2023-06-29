@@ -4,104 +4,125 @@
 <head>
 	<title>予定編集</title>
 	<meta charset="utf-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" th:href="@{/haikei.css}">
-<link rel="stylesheet" th:href="@{/header.css}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/haikei.css}">
+	<link rel="stylesheet" th:href="@{/header.css}">
 </head>
 
 <body>
 	<div class="set">
-	<header>
-	<h2>
-		<a href="/home">健康管理システム</a>
-	</h2>
-	<nav class="pc-nav">
-		<ul>
-			<li><a href="/form">健康者一覧</a></li>
-			<li><a href="/batform">再診者一覧</a></li>
-			<li><a href="/add">新規登録</a></li>
-		</ul>
-	</nav>
+		<header>
+			<h2>
+				<a href="/home">健康管理システム</a>
+			</h2>
+			<nav class="pc-nav">
+				<ul>
+					<li><a href="/form">健康者一覧</a></li>
+					<li><a href="/batform">再診者一覧</a></li>
+					<li><a href="/add">新規登録</a></li>
+				</ul>
+			</nav>
 
 
-</header>
+		</header>
 
-<div class="space"></div>
-	<div align="center">
-	<h1 th:text="${title}"></h1>
-	<div th:each="res : ${dbList}" th:object="${input}">
-		<form action="#" method="get" th:action="@{/saisin2/__*{id}__/exe}">
-			<input type="hidden" name="id" th:value="${res.id}">
-					
-					
-			<table>
-				<tr >
-					<td>
-						<p>名前：</p>
-					</td>
-					<td>
-						<p><input type="text" name="name" th:value="*{name}"></p>
-					</td>
-					<td>
-						<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
-					</td>
-				</tr>
-				 <tr>
-<!--    <td><p>年齢：</p></td>-->
-     <td><p><input type="hidden" id="age" th:value="*{age}"name="age"min="1" max="10" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
-<!--    <td><div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div></td>-->
-<!--  </tr>-->
-<!--  <tr>-->
-<!--    <td><p>身長：</p></td>-->
-     <td><p><input type="hidden" id="sinntyou" th:value="*{sinntyou}" name="sinntyou"min="1" max="200" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
-<!--    <td><div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div></td>-->
-<!--  </tr>-->
-<!--  <tr>-->
-<!--    <td><p>体重：</p></td>-->
-    <td><p><input type="hidden" id="taijuu" th:value="*{taijuu}" name="taijuu"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
-<!--    <td><div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div></td>-->
-<!--  </tr>-->
-<!--  <tr>    -->
-<!--    <td><p>血圧(上)：</p></td>-->
-    <td><p><input type="hidden" id="ketuatuue" th:value="*{ketuatuue}"name="ketuatuue"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
-<!--    <td><div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div></td>-->
-<!--  </tr>-->
-<!--  <tr>-->
-<!--    <td><p>血圧(下)：</p></td>-->
-   <td><p><input type="hidden" id="seibetu" th:value="*{seibetu}"name="seibetu"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
-    <td><p><input type="hidden" id="ketuatusita" th:value="*{ketuatusita}"name="ketuatusita"min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p></td>
-<!--    <td><div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div></td>-->
-  </tr>
-				<tr>
-					<td>
-						<p>メモ：</p>
-					</td>
-					<td>
-						<p><input type="text" name="memo" th:value="*{memo}"></p>
-					</td>
-					<td>
-						<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
-					</td>
-				</tr>
-<!--				<tr>-->
-<!--					<td>-->
-<!--						<p>性別：</p>-->
-<!--					</td>-->
-<!--					<td>-->
-<!--						<p>-->
-<!--							<select name="seibetu" required>-->
-<!--								<option value="">選択してください</option>-->
-<!--								<option>男</option>-->
-<!--								<option>女</option>-->
-<!--								<option>その他</option>-->
-<!--							</select>-->
-<!--						</p>-->
-<!--					</td>-->
-<!--				</tr>-->
-			</table>
-			<div><input type="submit" class="btn btn-outline-warning rounded-pill" value="更新"></div>
-		</form>
-</div>
+		<div class="space"></div>
+		<div align="center">
+			<br>
+			<h1 th:text="${title}"></h1>
+			<br>
+			<div th:each="res : ${dbList}" th:object="${input}">
+				<form action="#" method="get" th:action="@{/saisin2/__*{id}__/exe}">
+					<input type="hidden" name="id" th:value="${res.id}">
+
+
+					<table>
+						<tr>
+							<td>
+								<p>名前：</p>
+							</td>
+							<td>
+								<p><input type="text" name="name" th:value="*{name}"></p>
+							</td>
+							<td>
+								<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラーメッセージ</div>
+							</td>
+						</tr>
+						<tr>
+							<!--    <td><p>年齢：</p></td>-->
+							<td>
+								<p><input type="hidden" id="age" th:value="*{age}" name="age" min="1" max="10"
+										onfocus="if(this.value==this.defaultValue)this.value=''"></p>
+							</td>
+							<!--    <td><div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">エラーメッセージ</div></td>-->
+							<!--  </tr>-->
+							<!--  <tr>-->
+							<!--    <td><p>身長：</p></td>-->
+							<td>
+								<p><input type="hidden" id="sinntyou" th:value="*{sinntyou}" name="sinntyou" min="1"
+										max="200" onfocus="if(this.value==this.defaultValue)this.value=''"></p>
+							</td>
+							<!--    <td><div th:if="${#fields.hasErrors('sinntyou')}" th:errors="*{sinntyou}">エラーメッセージ</div></td>-->
+							<!--  </tr>-->
+							<!--  <tr>-->
+							<!--    <td><p>体重：</p></td>-->
+							<td>
+								<p><input type="hidden" id="taijuu" th:value="*{taijuu}" name="taijuu" min="1" max="300"
+										onfocus="if(this.value==this.defaultValue)this.value=''"></p>
+							</td>
+							<!--    <td><div th:if="${#fields.hasErrors('taijuu')}" th:errors="*{taijuu}">エラーメッセージ</div></td>-->
+							<!--  </tr>-->
+							<!--  <tr>    -->
+							<!--    <td><p>血圧(上)：</p></td>-->
+							<td>
+								<p><input type="hidden" id="ketuatuue" th:value="*{ketuatuue}" name="ketuatuue" min="1"
+										max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p>
+							</td>
+							<!--    <td><div th:if="${#fields.hasErrors('ketuatuue')}" th:errors="*{ketuatuue}">エラーメッセージ</div></td>-->
+							<!--  </tr>-->
+							<!--  <tr>-->
+							<!--    <td><p>血圧(下)：</p></td>-->
+							<td>
+								<p><input type="hidden" id="seibetu" th:value="*{seibetu}" name="seibetu" min="1"
+										max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p>
+							</td>
+							<td>
+								<p><input type="hidden" id="ketuatusita" th:value="*{ketuatusita}" name="ketuatusita"
+										min="1" max="300" onfocus="if(this.value==this.defaultValue)this.value=''"></p>
+							</td>
+							<!--    <td><div th:if="${#fields.hasErrors('ketuatusita')}" th:errors="*{ketuatusita}">エラーメッセージ</div></td>-->
+						</tr>
+						<tr>
+							<td>
+								<p>メモ：</p>
+							</td>
+							<td>
+								<p><input type="text" name="memo" th:value="*{memo}"></p>
+							</td>
+							<td>
+								<div th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">エラーメッセージ</div>
+							</td>
+						</tr>
+						<!--				<tr>-->
+						<!--					<td>-->
+						<!--						<p>性別：</p>-->
+						<!--					</td>-->
+						<!--					<td>-->
+						<!--						<p>-->
+						<!--							<select name="seibetu" required>-->
+						<!--								<option value="">選択してください</option>-->
+						<!--								<option>男</option>-->
+						<!--								<option>女</option>-->
+						<!--								<option>その他</option>-->
+						<!--							</select>-->
+						<!--						</p>-->
+						<!--					</td>-->
+						<!--				</tr>-->
+					</table>
+					<div><input type="submit" class="btn btn-outline-warning rounded-pill" value="更新"></div>
+				</form>
+			</div>
 </body>
 
 </html>
