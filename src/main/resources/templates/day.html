@@ -70,7 +70,7 @@
 	<table class="b">
 		<tr th:each="res : ${dbList}">
 			<td>
-				<form th:action="@{/saisin2/{id}(id=${res.id})}">
+				<form th:action="@{/saisin/{id}(id=${res.id})}">
 					<input type="hidden" name="id" th:value="${res.id}">
 						    <div><input type="submit" class = "btn btn-outline-secondary" value="再診" ></div>
 						</form>
