@@ -38,6 +38,7 @@ th:last-child{ /* 一番右の列の指定 */
 .parent {
  display: flex;
  justify-content: space-between;
+ 
 }
  
 .child {
