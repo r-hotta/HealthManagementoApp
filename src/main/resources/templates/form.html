@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="hyou.css">
+	<link rel="stylesheet" href="hyou2.css">
 	<link rel="stylesheet" href="haikei.css">
 	<link rel="stylesheet" href="footer.css">
 	<link rel="stylesheet" href="header.css">
@@ -41,25 +41,25 @@
 
 
 	</form>
-
+<!--<br></br>-->
 	<table>
 
-		<tr>
-			<th>名前</th>
-			<th>性別</th>
-			<th>年齢</th>
-			<th>身長(cm) </th>
-			<th>体重(kg)</th>
-			<th>血圧(上）</th>
-			<th>血圧（下）</th>
-			<th>メモ</th>
-			<th>判定</th>
-			<th>編集</th>
+		<tr class="line">
+			<th class="line">名前</th>
+			<th class="line">性別</th>
+			<th class="line">年齢</th>
+			<th class="line">身長(cm) </th>
+			<th class="line">体重(kg)</th>
+			<th class="line">血圧(上）</th>
+			<th class="line">血圧（下）</th>
+			<th class="line">メモ</th>
+			<th class="line">判定</th>
+			<th class="line">編集</th>
 
 		</tr>
-		<tr th:each=" res : ${dbList}">
+		<tr class="line" th:each=" res : ${dbList}">
 
-			<td>
+			<td class="line">
 				<form th:action="@{/day}">
 					<input type="hidden" name="id" th:value="${res.id}">
 
@@ -68,15 +68,15 @@
 
 			</td>
 
-			<td th:text="${res.seibetu}"></td>
-			<td th:text="${res.age}"></td>
-			<td th:text="${res.sinntyou}"></td>
-			<td th:text="${res.taijuu}"></td>
-			<td th:text="${res.ketuatuue}">
-			<td th:text="${res.ketuatusita}"></td>
-			<td th:text="${res.memo}"></td>
-			<td th:text="${res.type}"></td>
-			<td>
+			<td class="line" th:text="${res.seibetu}"></td>
+			<td class="line" th:text="${res.age}"></td>
+			<td class="line" th:text="${res.sinntyou}"></td>
+			<td class="line" th:text="${res.taijuu}"></td>
+			<td class="line" th:text="${res.ketuatuue}">
+			<td class="line" th:text="${res.ketuatusita}"></td>
+			<td class="line" th:text="${res.memo}"></td>
+			<td class="line" th:text="${res.type}"></td>
+			<td class="line">
 				<form th:action="@{/edit/{id}(id=${res.id})}">
 					<div><input type="submit" class="btn btn-outline-warning" value="編集"></div>
 				</form>
@@ -91,9 +91,11 @@
 
 		<div><input type="submit" class="btn btn-outline-success" value="新規登録画面"></div>
 	</form></td>
+	<td>　</td>
 			<td><form action="#" method="get" th:action="@{/batform}">
 		<div><input type="submit" class="btn btn-outline-danger" value="再診者一覧"></div>
 	</form></td>
+	<td>　</td>
 			<td><form action="#" method="get" th:action="@{/alldel}">
 		<div><input type="submit" class="btn btn-outline-info" id="btn" value="クリア"></div>
 	</form>
