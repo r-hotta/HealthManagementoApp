@@ -63,7 +63,7 @@ public class HealthController {
 	
 	@RequestMapping("/day")
 	public String day(Long id, String name, Input input, Input2 input2, Model model) {
-		model.addAttribute("title", "受診日");
+		model.addAttribute("title", "個人健康情報ページ");
 		
 		List<Ent> list = entformdao.selectOne(id);
 		
@@ -73,7 +73,7 @@ public class HealthController {
 	}
 	@RequestMapping("/day2")
 	public String day2(Long id, String name, Input input, Input2 input2, Model model) {
-		model.addAttribute("title", "受診日");
+		model.addAttribute("title", "個人健康情報ページ");
 		
 //		List<Ent> list = entformdao2.searchDb();
 		List<Ent> list = entformdao2.selectOne(id);
@@ -83,7 +83,7 @@ public class HealthController {
 	
 	@RequestMapping("/dayk")
 	public String dayk(Long id, String name, Input input, Input2 input2, Model model) {
-		model.addAttribute("title", "受診日");
+		model.addAttribute("title", "個人健康情報ページ");
 		List<Ent> list2 = entformdao.selectOne(id);
 		List<Ent> list = entformdao.selectOne(name);
 		model.addAttribute("dbList", list);
@@ -93,7 +93,7 @@ public class HealthController {
 	}
 	@RequestMapping("/dayk2")
 	public String dayk2(Long id, String name, Input input, Input2 input2, Model model) {
-		model.addAttribute("title", "受診日");
+		model.addAttribute("title", "個人健康情報ページ");
 		List<Ent> list2 = entformdao2.selectOne(id);
 		List<Ent> list = entformdao2.selectOne(name);
 		model.addAttribute("dbList", list);
